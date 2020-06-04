@@ -3,8 +3,8 @@ print('----------------------Project-Crypto---------------------------')
 
 import random, string
 
-task = input("Type 'en' if you wnat to encrypt or 'de' if you want to decrypt")
-word = str(input("Type in the word"))
+task = input("Type 'E' if you wnat to encrypt or 'D' if you want to decrypt")
+word = str(input("Type in the secret word: "))
 word_en = []
 word_de = []
 
@@ -12,22 +12,24 @@ word_de = []
 keys= string.ascii_lowercase
 values = keys[::-1]
 
-print(keys)
-print(values)
-
 code_en=dict(zip(keys, values))
-print(code_en)
 
 code_de=dict(zip(values, keys))
-print(code_de)
 
-#if task=="en":
-#   for letter in word:
-#       if letter == code_en(keys): 
-#           letter=conde_en(values)
+if task=="e" or task=="E":
+   for letter in word:
+       letter = code_en[letter]
+       word_en.append(letter)
+   print("Encrypted word is: " + "".join(word_en))    
             
-#elif task=="de":
-#else:
-#print('error')
+elif task=="d" or task=="D":
+    for letter in word:
+       letter = code_de[letter]
+       word_de.append(letter)
+    print("Decrypted word is: " + "".join(word_de))
+else:
+    print('error')
+
+
 
 
