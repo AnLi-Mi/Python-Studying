@@ -6,9 +6,7 @@ x = int(input("Choose number of prectice questions: "))
 do = int(input("Choose the highest number for your practice: "))
 i=1
 r=0
-
 answers=[]
-
 start = t()
 
 while i < x+1:

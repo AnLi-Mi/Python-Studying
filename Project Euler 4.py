@@ -1,5 +1,7 @@
 # project Euler 4 - largest palindrome of two 3 - digit numbers
 
+
+
 palindromes=[]
 multiplers = {}
 for num1 in range (100,1000):
@@ -20,4 +22,17 @@ for num1 in range (100,1000):
 
 answer = max(palindromes)
 print(answer)
-print(multiplers['answer'])
+print(multiplers['906609'])
+
+# ------------------ other way -------------------------
+
+palindromes1=[]
+for num1 in range (100,1000):
+    for num2 in range (100,1000):
+        product1 = str(num1*num2)
+        if product1 == product1[::-1]:
+            product1=int(product1)
+            palindromes1.append(product1)
+
+answer1 = max(palindromes1)
+print(answer1)
