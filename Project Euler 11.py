@@ -53,31 +53,10 @@ y19="01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
 
 # turing above to 1d array
 
-
-
-#y00=list(y00.split(' '))
-#y01=list(y01.split(' '))
-#y02=list(y02.split(' '))
-#y03=list(y03.split(' '))
-#y04=list(y04.split(' '))
-#y05=list(y05.split(' '))
-#y06=list(y06.split(' '))
-#y07=list(y07.split(' '))
-#y08=list(y08.split(' '))
-#y09=list(y09.split(' '))
-#y10=list(y10.split(' '))
-#y11=list(y11.split(' '))
-#y12=list(y12.split(' '))
-#y13=list(y13.split(' '))
-#y14=list(y14.split(' '))
-#y15=list(y15.split(' '))
-#y16=list(y16.split(' '))
-#y17=list(y17.split(' '))
-#y18=list(y18.split(' '))
-#y19=list(y19.split(' '))
-
 matrix = [y00, y01, y02, y03, y04, y05, y06, y07, y08, y09, y10, y11, y12, y13, y14, y15, y16, y17, y18, y19]
 print (f'Matrix: {matrix}')
+
+# turing above to 2d array
 
 for i in range (0,20):
     matrix[i]=list(matrix[i].split(' '))
@@ -85,76 +64,67 @@ for i in range (0,20):
 for lista in matrix:
     for i in range (0,20):
         lista[i]=int(lista[i])
-       
 
-print (f'Nowy Matrix: {matrix}')
-          
+# preparing an emty list to fill it out with all products
 
-
-print(y00[2])
-print(type(y00[2]))
-print(y01)
-print(y02)
-print(y03)
-print(y04)
-print(y05)
-print(y06)
-print(y07)
-print(y08)
-print(y09)
-print(y10)
-print(y11)
-print(y12)
-print(y13)
-print(y14)
-print(y15)
-print(y16)
-print(y17)
-print(y18)
-print(y19)
+product = []
+ 
+#horizontal left to right - (x in range (0,17), y in range (0,20))
 
 
-    
-
-#horizontal left to right - (x in range (0,18), y in range (0,21))
-
-
-for y in range (0, 21):
-    for x in range (0,18):
-        product.append(digram[x,y] * diagram[x+1,y] * diagram[x+2,y] * diagram[x+3,y]) 
+for y in range (0, 20):
+    for x in range (0,17):
+        product.append(matrix[y][x] * matrix [y][x+1] * matrix[y][x+2] * matrix[y][x+3])
+   #     print (matrix[y][x], matrix[y][x+1], matrix[y][x+2], matrix[y][x+3], matrix[y][x]*matrix[y][x+1]*matrix[y][x+2]*matrix[y][x+3])
 
 
-#horizontal right to left - (x in range (20,2, -1), y in range (0,21))
+#horizontal right to left - (x in range (19,2, -1), y in range (0,20))
 
-for y in range (0, 21):
-    for x in range (20,2, -1):
-        product.append(digram[x,y] * diagram[x-1,y] * diagram[x-2,y] * diagram[x-3,y])
+for y in range (0, 20):
+    for x in range (19,2, -1):
+       result=(matrix[y][x] * matrix[y][x-1] * matrix[y][x-2] * matrix[y][x-3])
+       result=int(result)
+       product.append(result)
+   #    print (matrix[y][x], matrix[y][x-1], matrix[y][x-2], matrix[y][x-3], matrix[y][x] * matrix[y][x-1] * matrix[y][x-2] * matrix[y][x-3])
         
-#vertical top to bottom - (x in range (0,21), y in range (0, 18))
+#vertical top to bottom - (x in range (0,20), y in range (0, 17))
 
-for x in range (0,21):
-    for y in range (0,18):
-        product.append(digram[x,y] * diagram[x,y+1] * diagram[x,y+2] * diagram[x,y+3]) 
-        
-#vertical bottom to top - (x in range (0,21), y in range (20,2, -1))
+for x in range (0,20):
+   for y in range (0,17):
+       result=(matrix[y][x] * matrix[y+1][x] * matrix[y+2][x] * matrix[y+3][x])
+       result=int(result)
+       product.append(result)
+   #    print (matrix[y][x], matrix[y+1][x], matrix[y+2][x], matrix[y+3][x], matrix[y][x] * matrix[y+1][x] * matrix[y+2][x] * matrix[y+3][x])
+#vertical bottom to top - (x in range (0,20), y in range (19,2, -1))
 
-for x in range (0, 21):
-    for y in range (20,2, -1):
-        product.append(digram[x,y] * diagram[x,y-1] * diagram[x,y-2] * diagram[x,y-3])
+for x in range (0, 20):
+    for y in range (19,2, -1):
+        result=(matrix[y][x] * matrix[y-1][x] * matrix[y-2][x] * matrix[y-3][x])
+        result=int(result)
+        product.append(result)
+   #     print(matrix[y][x], matrix[y-1][x], matrix[y-2][x], matrix[y-3][x], matrix[y][x] * matrix[y-1][x] * matrix[y-2][x] * matrix[y-3][x])
 
 # diagonal down left (up right)
 
-for y in range (0,18):
-    for x in range (0,18):
-         product.append(digram[x,y] * diagram[x+1,y+1] * diagram[x+2,y+2] * diagram[x+3,y+3]) 
+for y in range (0,17):
+    for x in range (0,17):
+         result=(matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3])
+         result=int(result)
+         product.append(result)
+   #      print(matrix[y][x], matrix[y+1][x+1], matrix[y+2][x+2], matrix[y+3][x+3], matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3])
 
 # diagonal down right (up left)
 
-for y in range (20,2, -1):
-    for x in range (20,2, -1):
-         product.append(digram[x,y] * diagram[x-1,y-1] * diagram[x-2,y-2] * diagram[x-3,y-3])
+for y in range (19,2, -1):
+    for x in range (19,2, -1):
+         result=(matrix[y][x] * matrix[y-1][x-1] * matrix[y-2][x-2] * matrix[y-3][x-3])
+         result=int(result)
+         product.append(result)
+         #print(matrix[y][x], matrix[y-1][x-1], matrix[y-2][x-2], matrix[y-3][x-3], matrix[y][x] * matrix[y-1][x-1] * matrix[y-2][x-2] * matrix[y-3][x-3])
 
-print(max(product))
+product.sort()
+print(product)
+#print(max(product))
 
 
 
