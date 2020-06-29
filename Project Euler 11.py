@@ -1,6 +1,10 @@
 # Project Euler - Problem 11
 # What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the below 20×20 grid?
 
+import time
+
+start = time.time()
+
 # creating a matrix -> x - columns (0,19) and y - rows (0,19)
 
 y00="08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08"
@@ -80,6 +84,8 @@ for y in range (19,2, -1):
         # debug - print(matrix[y][x], matrix[y-1][x+1], matrix[y-2][x+2], matrix[y-3][x+3], matrix[y][x] * matrix[y-1][x+1] * matrix[y-2][x+2] * matrix[y-3][x+3])
 
 print(max(product))
+end = time.time()
+print(round(end-start,4))
 
 
 
