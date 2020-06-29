@@ -2,10 +2,10 @@
 # What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the below 20×20 grid?
 
 import time
+import numpy as np
 
-start = time.time()
 
-# creating a matrix -> x - columns (0,19) and y - rows (0,19)
+# transporting data -> x - columns (0,19) and y - rows (0,19)
 
 y00="08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08"
 y01="49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00"
@@ -28,64 +28,71 @@ y17="20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16"
 y18="20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54"
 y19="01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
 
-
-# turing above to 1d array
+# creating a list of rows, so I can loop through them convering elements
 
 matrix = [y00, y01, y02, y03, y04, y05, y06, y07, y08, y09, y10, y11, y12, y13, y14, y15, y16, y17, y18, y19]
-# debug - print (f'Matrix: {matrix}')
 
-# turing above to 2d array
+# converting strings to lists of strings
 
 for i in range (0,20):
     matrix[i]=list(matrix[i].split(' '))
+
+# converting strings to int
 
 for lista in matrix:
     for i in range (0,20):
         lista[i]=int(lista[i])
 
-# preparing an emty list to fill it out with all products
+start1 = time.time()
 
-product = []
+# converting the list of lists to a 2D NumPy Array
+
+arr = np.array(matrix)
+
+# prepating an empty list to fill it out with products
+product1 = []
  
 #horizontal  - (x in range (0,17), y in range (0,20))
 
 
 for y in range (0, 20):
     for x in range (0,17):
-        product.append(matrix[y][x] * matrix [y][x+1] * matrix[y][x+2] * matrix[y][x+3])
-       # debug - print (matrix[y][x], matrix[y][x+1], matrix[y][x+2], matrix[y][x+3], matrix[y][x]*matrix[y][x+1]*matrix[y][x+2]*matrix[y][x+3])
+        result =(arr[y, x] * arr [y, x+1] * arr[y, x+2] * arr[y, x+3])
+        result=int(result)
+        product1.append(result)
 
 
 #vertical - (x in range (0,20), y in range (0, 17))
 
 for x in range (0,20):
    for y in range (0,17):
-       result=(matrix[y][x] * matrix[y+1][x] * matrix[y+2][x] * matrix[y+3][x])
+       result=(arr[y, x] * arr[y+1, x] * arr[y+2, x] * arr[y+3, x])
        result=int(result)
-       product.append(result)
-   #  debug -  print (matrix[y][x], matrix[y+1][x], matrix[y+2][x], matrix[y+3][x], matrix[y][x] * matrix[y+1][x] * matrix[y+2][x] * matrix[y+3][x])
+       product1.append(result)
 
 # diagonal down left (up right)
 
 for y in range (0,17):
     for x in range (0,17):
-         result=(matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3])
+         result=(arr[y, x] * arr[y+1, x+1] * arr[y+2, x+2] * arr[y+3, x+3])
          result=int(result)
-         product.append(result)
-   #   debug -  print(matrix[y][x], matrix[y+1][x+1], matrix[y+2][x+2], matrix[y+3][x+3], matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3])
+         product1.append(result)
 
 # diagonal down right (up left)
 
 for y in range (19,2, -1):
     for x in range (16,-1, -1):
-         result=(matrix[y][x] * matrix[y-1][x+1] * matrix[y-2][x+2] * matrix[y-3][x+3])
+         result=(arr[y, x] * arr[y-1, x+1] * arr[y-2, x+2] * arr[y-3, x+3])
          result=int(result)
-         product.append(result)
-        # debug - print(matrix[y][x], matrix[y-1][x+1], matrix[y-2][x+2], matrix[y-3][x+3], matrix[y][x] * matrix[y-1][x+1] * matrix[y-2][x+2] * matrix[y-3][x+3])
+         product1.append(result)
+        
 
-print(max(product))
-end = time.time()
-print(round(end-start,4))
+print(max(product1))
+end1 = time.time()
+print(round(end1-start1 ,10))
+
+
+
 
 
 
