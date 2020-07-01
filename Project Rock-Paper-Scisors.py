@@ -4,34 +4,17 @@ import random
 
 choose = ['nożyce', 'papier', 'kamień']
 
+
 def gra(x, y):
 
-    if x == "papier" and y== "papier" :
+    if x == y:
         print(f'Remis! ')
-
-    if x == "papier" and y== "kamień" :
+    elif (x == "papier" and y== "kamień") or (x == "kamień" and y== "nożyce") or (x == "nożyce" and y== "papier")  :
         print(f'Wygrywa: {x}! ')
-
-    if x == "papier" and y== "nożyce" :
+    else:
         print(f'Wygrywa: {y}!')
 
-    if x == "kamień" and y== "papier":
-        print(f'Wygrywa: {y}!')
-
-    if x == "kamień" and y== "kamień" :
-        print(f'Remis!')
-
-    if x == "kamień" and y== "nożyce" :
-        print(f'Wygrywa: {x}!')
-
-    if x == "nożyce" and y== "papier":
-        print(f'Wygrywa: {x}!')
-
-    if x == "nożyce" and y== "kamień" :
-        print(f'Wygrywa {y}!')
-
-    if x == "nożyce" and y== "nożyce":
-        print(f'Remis!')
+    
 
 
 #choice of player #1
