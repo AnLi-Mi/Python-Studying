@@ -1,42 +1,48 @@
 #ROCK PAPER SCISORS
 
-def gra(player1, playes2):
+import random
 
-    if player1 == "papier" and player2== "papier" :
+choose = ['nożyce', 'papier', 'kamień']
+
+def gra(x, y):
+
+    if x == "papier" and y== "papier" :
         print(f'Remis! ')
 
-    if player1 == "papier" and player2== "kamień" :
-        print(f'Wygrywa: {player1}! ')
+    if x == "papier" and y== "kamień" :
+        print(f'Wygrywa: {x}! ')
 
-    if player1 == "papier" and player2== "nożyce" :
-        print(f'Wygrywa: {player2}!')
+    if x == "papier" and y== "nożyce" :
+        print(f'Wygrywa: {y}!')
 
-    if player1 == "kamień" and player2== "papier":
-        print(f'Wygrywa: {player2}!')
+    if x == "kamień" and y== "papier":
+        print(f'Wygrywa: {y}!')
 
-    if player1 == "kamień" and player2== "kamień" :
+    if x == "kamień" and y== "kamień" :
         print(f'Remis!')
 
-    if player1 == "kamień" and player2== "nożyce" :
-        print(f'Wygrywa: {player1}!')
+    if x == "kamień" and y== "nożyce" :
+        print(f'Wygrywa: {x}!')
 
-    if player1 == "nożyce" and player2== "papier":
-        print(f'Wygrywa: {player1}!')
+    if x == "nożyce" and y== "papier":
+        print(f'Wygrywa: {x}!')
 
-    if player1 == "nożyce" and player2== "kamień" :
-        print(f'Wygrywa {player2}!')
+    if x == "nożyce" and y== "kamień" :
+        print(f'Wygrywa {y}!')
 
-    if player1 == "nożyce" and player2== "nożyce":
+    if x == "nożyce" and y== "nożyce":
         print(f'Remis!')
 
 
 #choice of player #1
 
 player1=str(input(f'Wybirz "papier", "nożyce" czy "kamień": '))
+player2=random.choice(choose)
+print(player2)
 
 #choice of player #2
 
-player2=str(input(f'Wybirz "papier", "nożyce" czy "kamień": '))
+#player2=str(input(f'Wybirz "papier", "nożyce" czy "kamień": '))
 
 gra(player1, player2)
 
