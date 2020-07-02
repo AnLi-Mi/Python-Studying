@@ -22,7 +22,7 @@ pull = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 num = random.choice(pull)
 exit="no"
 
-while exit=="no":
+while exit!="exit":
 
     # user is guessing a number
 
@@ -49,5 +49,4 @@ while exit=="no":
         
         print(f'Dziękuję za grę!')
         break
-    else:
-        continue
+    
