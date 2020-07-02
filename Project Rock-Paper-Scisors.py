@@ -4,7 +4,6 @@ import random
 
 choose = ['nożyce', 'papier', 'kamień']
 
-
 def gra(x, y):
 
     if x == y:
@@ -20,8 +19,16 @@ def gra(x, y):
 #choice of player #1
 
 player1=str(input(f'Wybirz "papier", "nożyce" czy "kamień": '))
+
+#requesting the input until it's correct
+
+while player1 not in ['nożyce', 'papier', 'kamień']:
+    player1=str(input(f'Nieprawidłowy wybór. Wybirz "papier", "nożyce" czy "kamień": '))
+    
+
+#losowy wybór komputera:
 player2=random.choice(choose)
-print(player2)
+print(f'Komputer wybrał: {player2}')
 
 #choice of player #2
 
