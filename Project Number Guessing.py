@@ -17,12 +17,13 @@ import random
 #preparing a pull computer choose his number from
 pull = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-#generating random number between 1 and 9
-
-num = random.choice(pull)
 exit="no"
+score=0
+games=0
 
 while exit!="exit":
+    #generating random number between 1 and 9
+    num = random.choice(pull)
 
     # user is guessing a number
 
@@ -36,6 +37,7 @@ while exit!="exit":
     # zasady gry
     if guess==num:
         print ('Zgadłeś!')
+        score+=1
     elif guess<num:
         print ('Za niska...')
     else:
@@ -43,10 +45,12 @@ while exit!="exit":
                
     print(f'Wyslosowana liczba to: {num}')
 
+    games+=1
+
     exit= str(input(f'Wpisz "exit" jeśli chcesz zakończyć grę: '))
 
     if exit == "exit":
         
-        print(f'Dziękuję za grę!')
+        print(f'Dziękuję za grę! Twój wynik to {score}/{games}')
         break
     
