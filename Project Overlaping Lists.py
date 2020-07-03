@@ -9,20 +9,10 @@
 #Write this in one line of Python
 
 #---------------------------SOLUTION---------------------
-import random
 
-#random selection of a lenght of the first list
-r=random.randrange(1,11)
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
-#random selection of a lenght of the second list
-p=random.randrange(1,11)
-
-
-#generating list of random numbers
-a = random.choices(range(1,10),k=r)
-print(f'lista a= {a}')
-b = random.choices(range(1,10),k=p)
-print(f'lista b= {b}')
 #preparing an empty list to generate it with common numbers
 c=[]
 
