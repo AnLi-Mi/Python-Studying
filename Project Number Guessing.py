@@ -21,33 +21,43 @@ exit="no"
 score=0
 games=0
 
+print(f'Witaj! Masz 3 podejście aby zgadnąć wylosowaną liczbę!')
+
 while exit!="exit":
+
+    
     #generating random number between 1 and 9
     num = random.choice(pull)
+    
+    
+    # loop allowing 3 attempts
+    i=1
+    while i<4:    
 
-    # user is guessing a number
+        # user is guessing a number
 
-    guess= int(input(f'Zgadnij cyfere miedzy 1 a 9: '))
+        guess= int(input(f'Podejście {i}: Zgadnij cyfrę między 1 a 9: '))
 
+        # ponownie zapytanie az uzytkownik poprawnie wpisze swoj wybor
+        while guess not in range(1,10):
+            guess = int(input(f'Niepoprawny wybór, wybierz cyfrę między 1 a 9: '))
 
-    # ponownie zapytanie az uzytkownik poprawnie wpisze swoj wybor
-    while guess not in range(1,10):
-        guess = int(input(f'Niepoprawny wybór, wybierz cyfre miedzy 1 a 9: '))
-
-    # zasady gry
-    if guess==num:
-        print ('Zgadłeś!')
-        score+=1
-    elif guess<num:
-        print ('Za niska...')
-    else:
-        print ('Za wysoka...')
+        # zasady gry:
+        if guess==num:
+            print (f'Zgadłeś za {i} razem!')
+            score+=1
+            break
+        elif guess<num:
+            print ('Za niska...')
+        else:
+            print ('Za wysoka...')
+        i+=1
                
     print(f'Wyslosowana liczba to: {num}')
 
     games+=1
 
-    exit= str(input(f'Wpisz "exit" jeśli chcesz zakończyć grę: '))
+    exit= str(input(f'Wpisz "exit" jeśli nie chcesz dalej: '))
 
     if exit == "exit":
         
