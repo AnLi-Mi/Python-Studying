@@ -17,13 +17,13 @@ r=random.randrange(1,11)
 #random selection of a lenght of the second list
 p=random.randrange(1,11)
 
-
-#generating list of random numbers
+#generating list of random numbers between 1 and 9
 a = random.choices(range(1,10),k=r)
 print(f'lista a= {a}')
 b = random.choices(range(1,10),k=p)
 print(f'lista b= {b}')
-#preparing an empty list to generate it with common numbers
+
+#preparing an empty list to populate it with common numbers form the lists
 c=[]
 
 #solution with 'in'
