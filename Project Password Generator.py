@@ -22,3 +22,22 @@ numbers = list(s.digits)
 print(numbers)
 symbols = list(s.punctuation)
 print(symbols)
+
+characters = [lower_case, upper_case, numbers, symbols]
+
+
+
+import random as r
+
+def pword():
+    # creating empty list to populat it with chosen elements
+    pw=[]
+    pw.append(r.choice(lower_case))
+    pw.append(r.choice(upper_case))
+    pw.append(r.choice(numbers))
+    pw.append(r.choice(symbols))
+    r.shuffle(pw)
+    pw="".join(pw)
+    print(pw)
+
+pword()
