@@ -3,6 +3,9 @@
 
 # --------------------------SOLUTION-------------------------------
 
+def get_num(request):
+    return int(input(request))
+
 def prime(x):
     div=[]
     for i in range(1, x+1):
@@ -14,5 +17,5 @@ def prime(x):
         print (f'{x} nie jest liczbą pierwszą')
     return x, div
 
-num=int(input("Proszę podać liczbę by sprawdzić czy jest ona liczbą pierwszą: "))
+num=get_num("Proszę podać liczbę by sprawdzić czy jest ona liczbą pierwszą: ")
 prime(num)
