@@ -33,9 +33,10 @@ for i in a:
             c.append(i)
 
 #turning into a set to get rid of duplicates
-c=set(c)
+c=list(set(c))
+c.sort()
 #turnig back to list again
-print (f'Wspólnymi elementami obu list są: {list(c)}')
+print (f'Wspólnymi elementami obu list są: {c}')
 
 
 
