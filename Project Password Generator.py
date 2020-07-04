@@ -7,7 +7,7 @@
 #Include your run-time code in a main method.
 #Extra:
 #Ask the user how strong they want their password to be.
-#For weak passwords, pick a word or two from a list.
+
 
 #-------------------------------solution----------------------
 
@@ -26,8 +26,37 @@ symbols = list(s.punctuation)
 import random as r
 
 
-# function for a midium passowrd - 10 charakters, which are mix of upper and lowercase and number
+# function for a weak passowrd - 8 charakters, which are mix of lowercase and number
 
+def pword_weak():
+    # creating a list of types of characters to choose from
+    characters_pull = [lower_case, numbers]
+
+    # creating empty list to populat it with chosen elements
+    pw=[]
+    # setting a default password lenthg for 8 characters)
+    pw_l=8
+
+    # sequring at least one character of each obligatory type
+    pw.append(r.choice(lower_case))
+    pw.append(r.choice(numbers))
+
+    # randomly selecting types of rest of characters
+    for i in range (3, pw_l+1):
+        # randomly choosing a type of character
+        char=r.choice(characters_pull)
+        # randomly choosing a character from the selected type
+        pw.append(r.choice(char))
+
+    # shuffling all selected elements 
+    r.shuffle(pw)
+
+    # turning a list of elelemts into a string
+    pw="".join(pw)
+    print(f'Twoje hasło to: {pw}')
+
+
+# function for a midium passowrd - 10 charakters, which are mix of upper and lowercase and number
 
 def pword_medium():
     # creating a list of types of characters to choose from
@@ -35,8 +64,8 @@ def pword_medium():
 
     # creating empty list to populat it with chosen elements
     pw=[]
-    # setting a default password lenthg for 10 characters)
-    pw_l=10
+    # setting a default password lenthg for 12 characters)
+    pw_l=12
 
     # sequring at least one character of each obligatory type
     pw.append(r.choice(lower_case))
@@ -94,6 +123,8 @@ def pword_strong():
     pw="".join(pw)
     print(f'Twoje hasło to: {pw}')
 
+
+pword_weak()
 
 pword_medium()
 
