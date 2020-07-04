@@ -11,10 +11,10 @@ def even_list(x):
     #preparing an empty list to populate it with even elements form list x
     b = []
     #going through all elements of the list x and checking if they are dividable by 2
-    for i in range (0, len(x)):
-        if x[i]%2==0:
+    for i in x:
+        if i%2==0:
             # populating the list b with even elelemnts of x
-            b.append(x[i])
+            b.append(i)
     print(b)
 
 
