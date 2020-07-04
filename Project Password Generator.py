@@ -14,27 +14,29 @@
 # generating lists of obligatory elements for a strong password
 import string as s
 
-lower_case = list(s.ascii_lowercase)
-print(lower_case)
-upper_case = list(s.ascii_uppercase)
-print(upper_case)
-numbers = list(s.digits)
-print(numbers)
-symbols = list(s.punctuation)
-print(symbols)
+# importing lists of password's potential characters, to choose from
 
+lower_case = list(s.ascii_lowercase)
+upper_case = list(s.ascii_uppercase)
+numbers = list(s.digits)
+symbols = list(s.punctuation)
+
+# creating a list of types of characters to choose from
 characters_pull = [lower_case, upper_case, numbers, symbols]
 
 import random as r
 
-
-
+# function for a strong passowrd
 def pword():
     
     # creating empty list to populat it with chosen elements
     pw=[]
-    #we're setting a dafeult lenthg of password 12 characters
-    pw_l=12
+    # asking user to choose a length of their password (setting a min lenthg of password 12 characters)
+    pw_l=int(input(f"Jaką długość ma mieć hasło (min 12 znaków)?: "))
+    # repetedly ask user for a length of the password until it's chosen correctly
+    while pw_l <12:
+        pw_l=int(input(f"Za niska liczba znaków (min 12 znaków). Ponwnie podaj liczbę znaków: "))
+        
     # sequring at least one character of each obligatory type
     pw.append(r.choice(lower_case))
     pw.append(r.choice(upper_case))
@@ -50,7 +52,7 @@ def pword():
     r.shuffle(pw)
     # turning a list of elelemts into a string
     pw="".join(pw)
-    print(pw)
+    print(f'Twoje hasło to: {pw}')
 
 pword()
 
