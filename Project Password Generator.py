@@ -124,9 +124,15 @@ def pword_strong():
     print(f'Twoje hasło to: {pw}')
 
 
-pword_weak()
+level = str(input(f'Jak mocne ma być hasło "strong", "medium" czy "weak"?: '))
 
-pword_medium()
+while level not in ["strong", "medium", "weak"]:
+    level=str(input(f'Niepoprawny wybór, wpisz "strong", "medium" albo "weak"'))
 
-pword_strong()
+if level =="weak":
+    pword_weak()
+elif level =="medium":
+    pword_medium()
+else:
+    pword_strong()
 
