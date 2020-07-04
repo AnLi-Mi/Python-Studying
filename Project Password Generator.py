@@ -35,15 +35,18 @@ def pword():
     pw=[]
     #we're setting a dafeult lenthg of password 12 characters
     pw_l=12
-    for i in range (1, pw_l+1):
+    # sequring at least one character of each obligatory type
+    pw.append(r.choice(lower_case))
+    pw.append(r.choice(upper_case))
+    pw.append(r.choice(numbers))
+    pw.append(r.choice(symbols))
+    # randomly selecting types of rest of characters
+    for i in range (5, pw_l+1):
         # randomly choosing a type of character
         char=r.choice(characters_pull)
         # randomly choosing a character from the selected typ
         pw.append(r.choice(char))
-        #pw.append(r.choice(upper_case))
-        #pw.append(r.choice(numbers))
-        #pw.append(r.choice(symbols))
-    # shuffling the selected elements 
+    # shuffling all selected elements 
     r.shuffle(pw)
     # turning a list of elelemts into a string
     pw="".join(pw)
