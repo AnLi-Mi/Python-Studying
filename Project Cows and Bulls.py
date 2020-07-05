@@ -22,8 +22,8 @@ print(number)
 #asking user to guess a number
 
 guess=str(input('Guess a 4-digit number: '))
-guess =[guess[0],guess[1],guess[2], guess[3]]
-print(guess)
+#turning the guessed number to a list of intigers
+guess =[int(guess[0]),int(guess[1]),int(guess[2]), int(guess[3])]
 
 #while guess not in range(1000,10000):
  #   guess=(input("It's not a 4-digit number....Guess a number between 1000 and 9999: "))
@@ -41,7 +41,9 @@ bulls=0
         
 for i in guess:
     if i in number:
-        print('wygrales byka')
+        bulls+=1
+
+print(f" You won {bulls} bulls and {cows} cows!")
 
 
                   
