@@ -9,7 +9,7 @@
 #--------------SOLUTION 1 with loop -------------
 
 
-def duplicates_out(a):
+def remove_dup1(a):
     #preparing and empty list to populate with elements from list a
     b=[]
     for i in a:
@@ -20,9 +20,19 @@ def duplicates_out(a):
 
 test = [1, 1, 2, 2, 3, 6 , 8, 3, 2, 1]
 
-duplicates_out(test)
+remove_dup1(test)
+
+#--------------SOLUTION 2 with sets -------------
         
-        
+def remove_dup2(x):
+    x = set(x)
+    x = list(x)
+    print (x)
+
+test = [1, 1, 2, 2, 3, 6 , 8, 3, 2, 1]
+
+remove_dup2(test)
+    
         
 
     
