@@ -23,16 +23,15 @@ for i in number:
     i = str(i)
     num= num + i
 
-#asking user to guess a number
+#discripbing game to the user
+print ("Guess a 4-digit number. For every digit that is guessed correctly in the correct place you win a cow. For every digit you guessed correctly in the wrong place you win a bull")
 
+#asking user to guess a number
 guess=str(input('Guess a 4-digit number: '))
 
 # requesting the input until it ahs a correct length
 while len(guess)!=4:
     guess=(input("It's not a 4-digit number....Guess a number between 1000 and 9999: "))
-
-#turning the guessed number to a list of intigers
-#guess =[int(guess[0]),int(guess[1]),int(guess[2]), int(guess[3])]
 
 #preparing a couter of 'cows' and 'bulls'
 cows=0
