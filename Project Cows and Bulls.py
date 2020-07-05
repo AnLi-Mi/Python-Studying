@@ -44,7 +44,14 @@ for i in guess:
     if i in number:
         bulls+=1
 
-print(f"The randomly selected digits are: {number}. You won {bulls} bulls and {cows} cows!")
+# turning the randomly selected digits into a one string
+num =""
+for i in number:
+    i = str(i)
+    num= num + i
+    
+
+print(f"The randomly selected number is: {num}. You won {bulls} bulls and {cows} cows!")
 
 
                   
