@@ -17,6 +17,11 @@ import random as r
 
 #generating random 4-digit number
 number = r.choices(range(1,10), k=4)
+# turning the randomly selected digits into a one string
+num =""
+for i in number:
+    i = str(i)
+    num= num + i
 
 #asking user to guess a number
 
@@ -27,7 +32,7 @@ while len(guess)!=4:
     guess=(input("It's not a 4-digit number....Guess a number between 1000 and 9999: "))
 
 #turning the guessed number to a list of intigers
-guess =[int(guess[0]),int(guess[1]),int(guess[2]), int(guess[3])]
+#guess =[int(guess[0]),int(guess[1]),int(guess[2]), int(guess[3])]
 
 #preparing a couter of 'cows' and 'bulls'
 cows=0
@@ -35,20 +40,14 @@ bulls=0
 
 #counting 'cows' - checking if the user guessed any of the digits correctly in the correct place
 for i in range (0,4):
-   if guess[i] == number[i]:
+   if guess[i] == num[i]:
        cows+=1
 
 #counting 'bulls' - checking if the user guessed any of the digits correctly but not in the correct place
         
 for i in guess:
-    if i in number:
+    if i in num:
         bulls+=1
-
-# turning the randomly selected digits into a one string
-num =""
-for i in number:
-    i = str(i)
-    num= num + i
     
 
 print(f"The randomly selected number is: {num}. You won {bulls} bulls and {cows} cows!")
