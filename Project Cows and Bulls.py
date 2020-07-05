@@ -33,9 +33,9 @@ cows=0
 bulls=0
 
 #counting 'cows' - checking if the user guessed any of the digits correctly in the correct place
-#for i in guess:
- #  if i == number[i]:
-  #     print('wygrales krowe')
+for i in range (0,4):
+   if guess[i] == number[i]:
+       cows+=1
 
 #counting 'bulls' - checking if the user guessed any of the digits correctly but not in the correct place
         
