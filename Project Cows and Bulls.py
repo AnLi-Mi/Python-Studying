@@ -17,16 +17,17 @@ import random as r
 
 #generating random 4-digit number
 number = r.choices(range(1,10), k=4)
-print(number)
 
 #asking user to guess a number
 
 guess=str(input('Guess a 4-digit number: '))
+
+# requesting the input until it ahs a correct length
+while len(guess)!=4:
+    guess=(input("It's not a 4-digit number....Guess a number between 1000 and 9999: "))
+
 #turning the guessed number to a list of intigers
 guess =[int(guess[0]),int(guess[1]),int(guess[2]), int(guess[3])]
-
-#while guess not in range(1000,10000):
- #   guess=(input("It's not a 4-digit number....Guess a number between 1000 and 9999: "))
 
 #preparing a couter of 'cows' and 'bulls'
 cows=0
@@ -43,7 +44,7 @@ for i in guess:
     if i in number:
         bulls+=1
 
-print(f" You won {bulls} bulls and {cows} cows!")
+print(f"The randomly selected digits are: {number}. You won {bulls} bulls and {cows} cows!")
 
 
                   
