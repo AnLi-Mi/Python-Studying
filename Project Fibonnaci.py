@@ -15,22 +15,13 @@
 num = int(input("How many Fibonnaci numbers would you like to generate?: "))
 
 def fibonnaci_sq(x):
-    f_seq = []
-    for i in range(0,x):
-        fib_num0=i
-        f_seq.append(fib_num0)
-        
-        fib_num1=fib_num0
-        f_seq.append(fib_num1)
-        
-        fib_num2=fib_num0 + fib_num1
-        f_seq.append(fib_num2)
+    f_seq = [1,1]
 
-        fib_num3=fib_num1 + fib_num2
-        f_seq.append(fib_num3)
-
-        fib_num4=fib_num2 + fib_num3
-        f_seq.append(fib_num3)
+    for i in range(1,x):
+        fib_num=f_seq[i] + f_seq[i-1]
+        f_seq.append(fib_num)
+        
+        
 
         
     
