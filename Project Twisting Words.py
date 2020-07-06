@@ -18,5 +18,15 @@ rym = str(input("Please type in a short paragraph: "))
 #turnig one string into a list of single words
 words = rym.split()
 print (words)
+
+#creating an empty list to populate it with the words in new order
+rym_twist =[]
+# swaping places of the words
+for i in range (0, len(words),2):
+    rym_twist.insert(i, words[i+1])
+for i in range (1, len(words),2):
+    rym_twist.insert(i, words[i-1])
+
+print (rym_twist)
  
                     
