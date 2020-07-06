@@ -8,15 +8,20 @@
 
 
 def element_search(x,y):
+
+    #convering an entered string of digits into a list of single digits
+    x=list(x)
+    #ordering the list
     x.sort()
+    print('The given list is: ', x)
     if y in x:
         print(True)
     else:
         print(False)
 
 
-a=[9,9,4,5,6,9,6,5,3,1,2,3,5]
-b=9
+a=input('Please enter a list of numbers: ')
+b=input('Please enter a number you are searching: ')
 
 element_search(a,b)
     
