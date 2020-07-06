@@ -23,12 +23,24 @@ def twist(x):
     rym_twist =[]
     
     # swaping places of the words
-    for i in range (0, len(words),2):
-        rym_twist.insert(i, words[i+1])
-        if IndexError:
-           rym_twist.insert(i, words[i]) 
-    for i in range (1, len(words),2):
-        rym_twist.insert(i, words[i-1])
+    # creating two alternatives to avid indexerror for a strings with odd number of words
+    if len(words)%2==0:
+        
+        for i in range (0, len(words),2):
+           rym_twist.insert(i, words[i+1])
+                  
+            
+        for i in range (1, len(words),2):
+            rym_twist.insert(i, words[i-1])
+    else:
+        for i in range (0, len(words)-1,2):
+           rym_twist.insert(i, words[i+1])
+
+        
+        for i in range (1, len(words),2):
+            rym_twist.insert(i, words[i-1])
+
+      
         
     #turning the new list into a sting
     rym_twist=" ".join(rym_twist)
