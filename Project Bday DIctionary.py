@@ -20,7 +20,7 @@ name = input("Insert a name of your friend: ")
 
 #returning the birthday's data
 
-print (f"{name}'s birthady is on {bdays[name]}.")
+print (f"{name.capitalize()}'s birthady is on {bdays[name.capitalize()]}.")
 
 
 
