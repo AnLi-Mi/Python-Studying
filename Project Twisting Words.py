@@ -14,20 +14,27 @@
 
 rym = str(input("Please type in a short paragraph: "))
 
-#def twist(x):
-#turnig one string into a list of single words
-words = rym.split()
-print (words)
+def twist(x):
+    
+    #turnig one string into a list of single words
+    words = rym.split()
+    
+    #creating an empty list to populate it with the words in new order
+    rym_twist =[]
+    
+    # swaping places of the words
+    for i in range (0, len(words),2):
+        rym_twist.insert(i, words[i+1])
+        if IndexError:
+           rym_twist.insert(i, words[i]) 
+    for i in range (1, len(words),2):
+        rym_twist.insert(i, words[i-1])
+        
+    #turning the new list into a sting
+    rym_twist=" ".join(rym_twist)
+    print (rym_twist)
 
-#creating an empty list to populate it with the words in new order
-rym_twist =[]
-# swaping places of the words
-for i in range (0, len(words),2):
-    rym_twist.insert(i, words[i+1])
-for i in range (1, len(words),2):
-    rym_twist.insert(i, words[i-1])
 
-rym_twist=" ".join(rym_twist)
-print (rym_twist)
+twist(rym)
  
                     
