@@ -33,6 +33,7 @@ def twist(x):
         for i in range (1, len(words),2):
             rym_twist.insert(i, words[i-1])
     else:
+
         for i in range (0, len(words)-1,2):
            rym_twist.insert(i, words[i+1])
 
@@ -40,7 +41,7 @@ def twist(x):
         for i in range (1, len(words),2):
             rym_twist.insert(i, words[i-1])
 
-      
+        rym_twist.append(words[-1])
         
     #turning the new list into a sting
     rym_twist=" ".join(rym_twist)
