@@ -27,6 +27,7 @@ for i in range (0, len(words),2):
 for i in range (1, len(words),2):
     rym_twist.insert(i, words[i-1])
 
+rym_twist=" ".join(rym_twist)
 print (rym_twist)
  
                     
