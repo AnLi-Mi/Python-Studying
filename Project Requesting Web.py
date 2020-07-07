@@ -1,13 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.nytimes.com/"
+source = requests.get("https://www.nytimes.com/")
 
-a = requests.get(url)
+source=source.text
+soup = BeautifulSoup(source, 'html.parser')
+#soup=soup.h2
 
-a=a.text
-b=BeautifulSoup(a, 'html.parser')
-b=b.h2
-
-print(b)
+print(soup.find_all('h2'))
 
