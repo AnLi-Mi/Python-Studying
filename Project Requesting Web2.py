@@ -23,6 +23,7 @@ source = source.text
 #structuring the website with bs
 soup=BeautifulSoup(source, "lxml")
 
-art=soup.find_all('p')
 
-print (art)
+
+for art in soup.find_all('p'):
+    print (art.string)
