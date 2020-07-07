@@ -13,9 +13,13 @@
 
 # --------------------------SOLUTION-----------------------
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup 
 import requests
 
+#downloaing the website
 source = requests.get("http://www.vanityfair.com/society/2014/06/monica-lewinsky-humiliation-culture")
 source = source.text
-print (source)
+
+#structuring the website with bs
+soup=BeautifulSoup(source, "lxml")
+print (soup)
