@@ -17,13 +17,12 @@ from bs4 import BeautifulSoup
 import requests
 
 #downloaing the website
-source = requests.get("http://www.vanityfair.com/society/2014/06/monica-lewinsky-humiliation-culture")
-source = source.text
+source = requests.get("https://w3schools.com/python/demopage.htm")
+print(source)
 
 #structuring the website with bs
-soup=BeautifulSoup(source, "lxml")
+#soup=BeautifulSoup(source, "lxml")
 
-
-
-for art in soup.find_all('p'):
-    print (art.string)
+#for art in soup.find_all('p'):
+    
+#print (art.string)
