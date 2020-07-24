@@ -1,7 +1,7 @@
 from __future__ import print_function
-
+from datetime import date, datetime, timedelta
 import mysql.connector
-from mysql.connector import errorcode
+#from mysql.connector import errorcode
 
 DB_NAME = 'Testuje'
 
@@ -74,17 +74,24 @@ TABLES['titles'] = (
     "     REFERENCES `employees` (`emp_no`) ON DELETE CASCADE"
     ") ENGINE=InnoDB")
 
-cnx = mysql.connector.connect(user= 'root', password= '8G13rm3k', host= 'localhost')
+cnx = mysql.connector.connect(user= 'root', password= '8G13rm3k', host= 'localhost', database = 'testuje')
 cursor = cnx.cursor()
 
-cursor.execute("CREATE DATABASE Testuje")
-cursor.execute("USE Testuje")
+#cursor.execute("CREATE DATABASE Testuje")
+#cursor.execute("USE Testuje")
 
-for table_name in TABLES:
-    table_description = TABLES[table_name]
-    print(f"Creating table: {table_name} \n".format(table_name), end='')
-    cursor.execute(table_description)
-   
+#for table_name in TABLES:
+ #   table_description = TABLES[table_name]
+  #  print(f"Creating table: {table_name} \n".format(table_name), end='')
+   # cursor.execute(table_description)
+
+
+add_employee = ("INSERT INTO employees(first_name, last_name, hire_date, gender, birth_date) VALUES ('tomasz','tutek','1999-01-02', 'M', '1979-10-11' )")
+
+cursor.execute(add_employee)
+cnx.commit()
+
+
 
 
     
