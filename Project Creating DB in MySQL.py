@@ -74,7 +74,7 @@ TABLES['titles'] = (
     "     REFERENCES `employees` (`emp_no`) ON DELETE CASCADE"
     ") ENGINE=InnoDB")
 
-cnx = mysql.connector.connect(user= 'root', password= '8G13rm3k', host= 'localhost', database = 'testuje')
+cnx = mysql.connector.connect(user= 'root', password= '8G13rm3k', host= 'localhost')
 cursor = cnx.cursor()
 
 #cursor.execute("CREATE DATABASE Testuje")
@@ -85,12 +85,35 @@ cursor = cnx.cursor()
   #  print(f"Creating table: {table_name} \n".format(table_name), end='')
    # cursor.execute(table_description)
 
+cursor.close()
+cnx.close()
 
-add_employee = ("INSERT INTO employees(first_name, last_name, hire_date, gender, birth_date) VALUES ('tomasz','tutek','1999-01-02', 'M', '1979-10-11' )")
+cnx = mysql.connector.connect(user= 'root', password= '8G13rm3k', host= 'localhost', database = 'testuje')
+cursor = cnx.cursor()
 
-cursor.execute(add_employee)
-cnx.commit()
+#add_employee = ("INSERT INTO employees(first_name, last_name, hire_date, gender, birth_date) VALUES (%s, %s, %s, %s, %s)")
+#data = [('tut1','tutek','1999-01-02', 'M', '1979-10-11' ), ('tut2','tutek','1999-01-02', 'M', '1979-10-11' ), ('tut3','tutek','1999-01-02', 'M', '1979-10-11' ), ('tut4','tutek','1999-01-02', 'M', '1979-10-11' )]
 
+#for employee in data:
+#    cursor.execute(add_employee,employee)
+#    cnx.commit()
+
+cursor.close()
+cnx.close()
+
+cnx = mysql.connector.connect(user= 'root', password= '8G13rm3k', host= 'localhost', database = 'testuje')
+cursor = cnx.cursor()
+
+query = ("SELECT first_name, last_name, hire_date FROM employees "
+         "WHERE hire_date BETWEEN %s AND %s")
+
+start1 = '2000-01-01'
+start2 = '2001-01-01'
+
+cursor.execute(query, (start1, start2))
+
+for (record, record2, record3) in cursor:
+    print (f"{record} {record2} was hired on {record3}")
 
 
 
