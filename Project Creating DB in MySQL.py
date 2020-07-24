@@ -115,6 +115,14 @@ cursor.execute(query, (start1, start2))
 for (record, record2, record3) in cursor:
     print (f"{record} {record2} was hired on {record3}")
 
+salary_update= ("UPDATE salaries as s JOIN  employees as e ON e.emp_no=s.emp_no SET salary = salary*1.15 WHERE e.hire_date BETWEEN '1998-01-01' AND '1999-01-01';")
+
+cursor.execute (salary_update)
+cnx.commit()
+
+
+
+
 
 
     
