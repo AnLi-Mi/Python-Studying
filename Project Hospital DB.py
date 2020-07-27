@@ -73,3 +73,19 @@ def doc_list(speciality, salary):
 spec=input('Enter speciality: ')
 sal=input('Enter salary : ')
 doc_list(spec,sal)
+
+#Question 4: Get a list of doctors from a given hospital
+
+def doc_hos_list(hos_name):
+    database=connection_start()
+    cursor=database.cursor()
+    query = ("SELECT d.doctor_id, d.doctor_name FROM doctor d JOIN hospital h ON d.hospital_id=h.hospital_id WHERE hospital_name= %s;")
+    cursor.execute(query, (hos_name,))
+    result=cursor.fetchall()
+    print (f'Doctors working in the hospital {hos_name} are: ')
+    for record in result:
+        print (f'{record[0]} - {record[1]}')
+    connection_stop(database)
+
+hos=input('Enter the name of the hospital: ')
+doc_hos_list(hos)
