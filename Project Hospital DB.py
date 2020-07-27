@@ -62,12 +62,12 @@ hospital_info(hos)
 def doc_list(speciality, salary):
     database=connection_start()
     cursor=database.cursor()
-    query=('SELECT * FROM doctor WHERE speciality = %s and salary > %s;')
+    query=('SELECT d.doctor_name, h.hospital_name FROM doctor d JOIN hospital h on d.hospital_id = h.hospital_id WHERE speciality = %s and salary > %s;')
     cursor.execute(query, (speciality, salary,))
     result = cursor.fetchall()
     print (f'The {speciality}s with salary above {salary} are: ')
     for record in result:
-        print (f' Doctor {record[1]} from hospital {record[2]}')
+        print (f' Doctor {record[0]} from hospital {record[1]}')
     connection_stop(database)
 
 spec=input('Enter speciality: ')
