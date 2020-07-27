@@ -89,3 +89,27 @@ def doc_hos_list(hos_name):
 
 hos=input('Enter the name of the hospital: ')
 doc_hos_list(hos)
+
+# Operation 5: Update doctor experience in years
+
+import datetime
+from dateutil.relativedelta import relativedelta
+
+def exp_update(doc):
+    database=connection_start()
+    cursor=database.cursor()
+    query = ("SELECT joining_date FROM doctor WHERE doctor_id= %s;")
+    cursor.execute(query,(doc,))
+    result = cursor.fetchone()
+    joining_date= datetime.datetime.strptime(''.join(map(str, result)), '%Y-%m-%d')
+    today_date = datetime.datetime.now()
+    exp_yr = relativedelta(today_date, joining_date).years
+    query2 = ("UPDATE doctor SET experience = %s WHERE doctor_id= %s;")
+    cursor.execute(query2,(exp_yr,doc,))
+    database.commit()
+
+doc=input("Enter doctor's Id number: ") 
+exp_update(doc)
+            
+
+
