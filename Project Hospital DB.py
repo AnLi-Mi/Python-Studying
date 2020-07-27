@@ -53,6 +53,23 @@ def hospital_info(hospital_id):
 
 doc=input('Enter in ID number of a doctor: ')
 doctor_info(doc)
-
 hos=input('Enter in ID number of a hospital: ')
 hospital_info(hos)
+
+
+# Questions 3: Get the list Of doctors as per the given specialty and salary
+
+def doc_list(speciality, salary):
+    database=connection_start()
+    cursor=database.cursor()
+    query=('SELECT * FROM doctor WHERE speciality = %s and salary > %s;')
+    cursor.execute(query, (speciality, salary,))
+    result = cursor.fetchall()
+    print (f'The {speciality}s with salary above {salary} are: ')
+    for record in result:
+        print (f' Doctor {record[1]} from hospital {record[2]}')
+    connection_stop(database)
+
+spec=input('Enter speciality: ')
+sal=input('Enter salary : ')
+doc_list(spec,sal)
