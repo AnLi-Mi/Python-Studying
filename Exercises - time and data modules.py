@@ -2,6 +2,8 @@
 
 import datetime
 from datetime import date
+from datetime import time
+from datetime import datetime
 from datetime import timedelta
 
 def leap_year(year):
@@ -27,7 +29,7 @@ yr = int(input("Please enter a year to check if it's a leap year: "))
 print(leap_year(yr))
 
 
-# Write a Python program to print yesterday, today, tomorrow.
+# Exercise 2: Write a Python program to print yesterday, today, tomorrow.
 
 diff = timedelta(days =1)
 
@@ -37,4 +39,12 @@ yesterday  = today - diff
 
 print (yesterday, today, tomorrow)
 
+# Exercise 3: Write program to get current time in milliseconds in Python
 
+# datetime object containing current date and time
+now = datetime.now(hour, minute, second)
+print (now)
+time = now.strftime("%H:%M:%S")
+#time2 = timedelta(hours = %H, minutes = %M ,seconds= %S)
+print(f"Current time is {time}")	
+print(time.total_seconds())
