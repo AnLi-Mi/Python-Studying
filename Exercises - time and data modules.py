@@ -16,15 +16,25 @@ def leap_year(year):
 
 # checking if a month of a generated date was february or march
     if check_date.month == 2:
-       return print (f'{year} is a leap year')
+       return True
     else:
-        return print (f'{year} is NOT a leap year')
+        return False
 
 # asking user to input the year they want to check:
 
-yr = int(input("Please neter a year to check if it'a leap year: "))
+yr = int(input("Please enter a year to check if it's a leap year: "))
 
-leap_year(yr)
+print(leap_year(yr))
 
+
+# Write a Python program to print yesterday, today, tomorrow.
+
+diff = timedelta(days =1)
+
+today = date.today()
+tomorrow = today + diff
+yesterday  = today - diff
+
+print (yesterday, today, tomorrow)
 
 
