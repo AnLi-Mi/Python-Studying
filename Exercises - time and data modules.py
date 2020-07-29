@@ -42,9 +42,13 @@ print (yesterday, today, tomorrow)
 # Exercise 3: Write program to get current time in milliseconds in Python
 
 # datetime object containing current date and time
-now = datetime.now(hour, minute, second)
-print (now)
-time = now.strftime("%H:%M:%S")
-#time2 = timedelta(hours = %H, minutes = %M ,seconds= %S)
-print(f"Current time is {time}")	
-print(time.total_seconds())
+now = datetime.now()
+
+hour= int(now.strftime("%H"))
+minute= int(now.strftime("%M"))
+second = int(now.strftime("%S"))
+
+time = timedelta(hours = hour, minutes = minute ,seconds= second)
+
+print(f"Current time is {hour} : {minute} : {second}")	
+print(f" it's {time.total_seconds()} seconds of the day")
