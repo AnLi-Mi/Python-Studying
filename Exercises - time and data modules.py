@@ -1,60 +1,25 @@
+# Exercise:  Write a Python program to determine whether a given year is a leap year.
+
 import datetime
-
-
-
-print(dir(datetime))
-
-# date generation
-
 from datetime import date
-
-datetime_object = date(2013,5,10)
-print(datetime_object)
-print(datetime_object.month)
-
-a = date.today().month
-print(a)
-
-
-#time generation
-
-from datetime import time
-
-b = time(3,45,16)
-print(b)
-print(b.second)
-
-# date + time generation
-
-from datetime import datetime
-
-c= datetime(2020,7,29, 12, 25)
-print(c)
-
-#counting diffence between two dates
-
-from datetime import datetime, date
-
-t1 = date(2020,3,23)
-t2 = date.today()
-dif = t2-t1
-print(dif)
-print(type(dif))
-
-
 from datetime import timedelta
 
-t1 = timedelta(days =19, hours = 1, seconds = 33)
-t2 = timedelta(2,5,1, 33)
-print (t1)
-print (t2)
-print (t1 - t2)
-print (f't1 in seconds: {t1.total_seconds()}')
+# asking user to input the year they want to check:
 
+year = int(input("Please neter a year to check if it'a leap year: "))
 
-#test
+# 60th day of a year can be 29of feb or 1st of march,
+# therefore I create a timedelta calculating 59 days from the begining of a given year
 
-today= date.today()
-fut = timedelta(days = 10)
+future = timedelta(days = 59)
+start_date = date(year, 1,1)
 
-print (today + fut)
+# generating the date of a 60th day of a given year
+check_date = start_date + future
+
+# checking if a month of a generated date was february or march
+if check_date.month == 2:
+    print (f'{year} is a leap year')
+else:
+    print (f'{year} is NOT a leap year')
+
