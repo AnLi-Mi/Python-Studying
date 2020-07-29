@@ -28,10 +28,26 @@ def create_date(start_yr, start_mo, start_day):
         print (f'In {num} days from {start_date} will be {future_date}')
   
 # asking user to indicate th number of days they want to calculate:
+
 print('Enter the date you want to start counting from')
-start_yr = int(input('year: '))  
-start_mo = int(input('month: '))
-start_day = int(input('day: '))
+
+# get year:
+try:
+    start_yr = int(input('year: '))
+except ValueError:
+    start_yr = int(input('Error! Please enter a correct value. Year: '))
+     
+# get month:
+try:
+    start_mo = int(input('month: '))
+except ValueError:
+    start_mo = int(input('Error! Please enter a correct value. Month: '))
+
+# get day:
+try:
+    start_day = int(input('day: '))
+except ValueError:
+    start_day = int(input('Error! Please enter a correct value. Day: '))
 
 # asking user to indicate th number of days they want to calculate:
 num = int(input('Enter the number of days you want to count:  '))
