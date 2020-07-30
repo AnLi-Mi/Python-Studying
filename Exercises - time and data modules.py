@@ -73,20 +73,22 @@ from datetime import timedelta
 
 #asking user for the input of two dates
 
-date1 = input('Enter first date: ')
-date2 = input ('Enter second date: ')
+date1 = input('Enter first date (dd/mm/yyyy): ')
+date2 = input ('Enter second date (dd/mm/yyyy): ')
 
 #convering the inputed strings into a date format
 
-date1 = datetime.strptime(date1, "%d %m %Y")
-date2 = datetime.strptime(date2, "%d %m %Y")
+date1 = datetime.strptime(date1, "%d/%m/%Y")
+date2 = datetime.strptime(date2, "%d/%m/%Y")
 
-
+#preparing timedelta object of one day to raise each day with one day(something like a step)
 t = timedelta(days =1)
+#starting the loop from fist given date
 i = date1
 
+#a loop printing each day and adding one more day until it reaches a second given date
 while i <= date2:
-    print (i)
+    print (i.date())
     i =  i + t
 
 
