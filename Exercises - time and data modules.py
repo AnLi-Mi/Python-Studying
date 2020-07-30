@@ -1,4 +1,6 @@
-# Exercise:  Write a Python program to determine whether a given year is a leap year.
+print ('------------------- Exercise 1 ----------------------')
+
+# Exercise 1:  Write a Python program to determine whether a given year is a leap year.
 
 import datetime
 from datetime import date
@@ -28,7 +30,7 @@ yr = int(input("Please enter a year to check if it's a leap year: "))
 
 print(leap_year(yr))
 
-
+print ('------------------- Exercise 2 ----------------------')
 # Exercise 2: Write a Python program to print yesterday, today, tomorrow.
 
 diff = timedelta(days =1)
@@ -39,16 +41,44 @@ yesterday  = today - diff
 
 print (yesterday, today, tomorrow)
 
-# Exercise 3: Write program to get current time in milliseconds in Python
+print ('------------------- Exercise 3 ----------------------')
+
+# Exercise 3: Write program to get current time in seconds in Python
 
 # datetime object containing current date and time
 now = datetime.now()
 
-hour= int(now.strftime("%H"))
-minute= int(now.strftime("%M"))
-second = int(now.strftime("%S"))
+# extracting elements of the current date
+hour = int(now.hour)
+minute= int(now.minute)
+second = int(now.second)
+
+print(f"Current time is {hour} : {minute} : {second}")
+
+#creating timedelta to calculate number of seconds
 
 time = timedelta(hours = hour, minutes = minute ,seconds= second)
 
-print(f"Current time is {hour} : {minute} : {second}")	
+	
 print(f" it's {time.total_seconds()} seconds of the day")
+
+print ( "----------------- trying -------------------")
+
+# Exercise 4: Write a Python program to get a list of dates between two dates. 
+
+import datetime
+from datetime import date
+from datetime import time
+from datetime import datetime
+from datetime import timedelta
+
+date1= date.today()
+d = date(2020, 8, 13)
+t = timedelta(days =1)
+i = date1
+
+while i <= d:
+    print (i)
+    i =  i + t
+
+
