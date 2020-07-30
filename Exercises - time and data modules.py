@@ -95,9 +95,8 @@ while i <= date2:
 
 print ('------------------- Exercise 5 ----------------------')
 
-# Exercise 5: 3. Write a Python program to convert a string to datetime.
-#Sample String : Jan 1 2014 2:43PM
-#Expected Output : 2014-07-01 14:43:00
+# Exercise 5: Write a Python program to convert a string to datetime.
+
 
 import datetime
 from datetime import datetime
@@ -106,4 +105,21 @@ str_date = "Jan 1 2014 2:43PM"
 dt_date = datetime.strptime(str_date, "%b %d %Y %I:%M%p")
 print (f'String format: {str_date}')
 print (f'Datetime format: {dt_date}')
+
+print ('------------------- Exercise 6 ----------------------')
+
+# Exercise 6 : Write a Python program to get the current time
+
+import datetime
+from datetime import time
+
+#generating present date and time
+now = datetime.datetime.now()
+print (now)
+
+#extracting just a current time
+print(now.time())
+
+
+
 
