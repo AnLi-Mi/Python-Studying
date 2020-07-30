@@ -10,9 +10,11 @@ from datetime import timedelta
 
 # creating a function generating a starting date form given veriables
 #and than adding given number of days
-def create_date(start_date, num):
-    
+def create_date(date_str, num):
+    from datetime import datetime
     try:
+        #convering a given string into date format
+        start_date = datetime.strptime(date_str, "%d/%m/%Y")
         #converting the input into timedalta attribute
         days = timedelta(days = num)
         #generating the future date
@@ -28,23 +30,16 @@ def create_date(start_date, num):
         #generating the future date
         future_date = (start_date + days) 
         print (f'In {num} days from {start_date} will be {future_date}')
+        
   
 # asking user to indicate th number of days they want to calculate:
-
 date_str = input('Enter the date you want to start counting from (dd/mm/yyy): ' )
-
-#convering a given string into date format
-from datetime import datetime
-start_date = datetime.strptime(date_str, "%d/%m/%Y")
-
-
 
 # asking user to indicate th number of days they want to calculate:
 num = int(input('Enter the number of days you want to count:  '))
 
-
 #calling the function with given virables
-create_date(start_date, num)
+create_date(date_str, num)
 
  
 
