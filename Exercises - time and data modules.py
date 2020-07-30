@@ -66,18 +66,26 @@ print ( "----------------- trying -------------------")
 
 # Exercise 4: Write a Python program to get a list of dates between two dates. 
 
-import datetime
+#importing necessary modules
 from datetime import date
-from datetime import time
 from datetime import datetime
 from datetime import timedelta
 
-date1= date.today()
-d = date(2020, 8, 13)
+#asking user for the input of two dates
+
+date1 = input('Enter first date: ')
+date2 = input ('Enter second date: ')
+
+#convering the inputed strings into a date format
+
+date1 = datetime.strptime(date1, "%d %m %Y")
+date2 = datetime.strptime(date2, "%d %m %Y")
+
+
 t = timedelta(days =1)
 i = date1
 
-while i <= d:
+while i <= date2:
     print (i)
     i =  i + t
 
