@@ -13,8 +13,10 @@ from datetime import timedelta
 def create_date(date_str, num):
     from datetime import datetime
     try:
+                 
         #convering a given string into date format
         start_date = datetime.strptime(date_str, "%d/%m/%Y")
+        start_date = start_date.date()
         #converting the input into timedalta attribute
         days = timedelta(days = num)
         #generating the future date
@@ -22,21 +24,25 @@ def create_date(date_str, num):
         print (f'In {num} days from {start_date} will be {future_date}')
 
     except ValueError:
-        print ("Incorrect entered date so we will use today's date as a default")
+        print ("The entered date is incorrect so today's date is used as a default")
         #creating default date if ValueError
         start_date=date.today()
         #converting the input into timedalta attribute
         days = timedelta(days = num)
         #generating the future date
         future_date = (start_date + days) 
-        print (f'In {num} days from {start_date} will be {future_date}')
+        print (f'In {num} days from today will be {future_date}')
         
   
 # asking user to indicate th number of days they want to calculate:
 date_str = input('Enter the date you want to start counting from (dd/mm/yyy): ' )
 
 # asking user to indicate th number of days they want to calculate:
-num = int(input('Enter the number of days you want to count:  '))
+try: 
+    num = int(input('Enter the number of days you want to count:  '))
+except ValueError:    
+    num = int(input('ValueError! Please enter a correct value for the number of days you want to count:  '))
+    
 
 #calling the function with given virables
 create_date(date_str, num)
