@@ -62,7 +62,7 @@ time = timedelta(hours = hour, minutes = minute ,seconds= second)
 	
 print(f" it's {time.total_seconds()} seconds of the day")
 
-print ( "----------------- trying -------------------")
+print ('------------------- Exercise 4 ----------------------')
 
 # Exercise 4: Write a Python program to get a list of dates between two dates. 
 
@@ -91,4 +91,19 @@ while i <= date2:
     print (i.date())
     i =  i + t
 
+
+
+print ('------------------- Exercise 5 ----------------------')
+
+# Exercise 5: 3. Write a Python program to convert a string to datetime.
+#Sample String : Jan 1 2014 2:43PM
+#Expected Output : 2014-07-01 14:43:00
+
+import datetime
+from datetime import datetime
+
+str_date = "Jan 1 2014 2:43PM"
+dt_date = datetime.strptime(str_date, "%b %d %Y %I:%M%p")
+print (f'String format: {str_date}')
+print (f'Datetime format: {dt_date}')
 
