@@ -17,6 +17,17 @@ print(con_test)
 
     #populating 'customer' table with new records
 
-add_customers = ("INSERT INTO customers (customer_id, customer_name, email) VALUES (6, 'Matt Smith', 'matt@smith.com');")
-p_cursor.execute(add_customers)
-mypgdb.commit()
+#add_customers = ("INSERT INTO customers (customer_id, customer_name, email) VALUES (6, 'Matt Smith', 'matt@smith.com');")
+#p_cursor.execute(add_customers)
+#mypgdb.commit()
+
+
+    #testing fatching all data
+
+all_customers = ("SELECT * FROM customers;")
+p_cursor.execute(all_customers)
+
+result = p_cursor.fetchall()
+for record in result:
+    print(f'Name: {record[1]}, E-mail: {record[2]}')
+
