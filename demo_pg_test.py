@@ -23,6 +23,8 @@ print(con_test)
 
 
     #testing fatching all data
+print('\n')
+print(' ------- All Customers ----------- ')
 
 all_customers = ("SELECT * FROM customers;")
 p_cursor.execute(all_customers)
@@ -30,4 +32,13 @@ p_cursor.execute(all_customers)
 result = p_cursor.fetchall()
 for record in result:
     print(f'Name: {record[1]}, E-mail: {record[2]}')
+print('\n')
 
+    #testing fatching filtered data
+print(' ------- Female Customers ----------- ')
+
+female_customers = ("SELECT * FROM customers WHERE customer_name LIKE '%a' or customer_name LIKE '%a %' ;")
+p_cursor.execute(female_customers)
+result = p_cursor.fetchall()
+for record in result:
+    print(f'Name: {record[1]}, E-mail: {record[2]}')
