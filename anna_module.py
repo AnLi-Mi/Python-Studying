@@ -30,6 +30,14 @@ def guess_comparing(comp, user):
         print ('Congrats! You guessed!')
     else:
         print (f'You lost, the selected item was {comp}.')
+
+def rps_comparing(comp, user):
+    if user.lower() == comp:
+        print(f'Remis! ')
+    elif (user.lower() == "paper" and comp== "rock") or (user.lower() == "rock" and comp== "scisors") or (user.lower() == "scisors" and comp== "paper")  :
+        print(f'You won! ')
+    else:
+        print(f'Coputer selected {comp} - you lost!')
         
 #przykłady list
 numbers_pull = range(1,11)
