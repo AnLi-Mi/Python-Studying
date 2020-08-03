@@ -1,5 +1,5 @@
 def greeting(name):
-    print (f'Hello {name.capitalize()}!')
+    print (f'Hello {name.capitalize()}, welcome in the game!')
 
 
 def correct_input_request(guess,pull):
@@ -13,6 +13,13 @@ def random_selection(pull):
     import random
     selection = random.choice(pull)
     return selection
+
+
+def comparing(comp, user):
+    if user == comp:
+        print ('Congrats! You guessed!')
+    else:
+        print (f'You lost, the selected item was {comp}.') 
 
 
 #przykłady list
