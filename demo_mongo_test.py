@@ -1,7 +1,16 @@
+#downloading necessary module, connecting to server and checking connection
+
 import pymongo
-
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-
+connect = pymongo.MongoClient("mongodb://localhost:27017/")
 print(pymongo.server_description)
 
-fist_db =myclient["fist_db"]
+
+#checking existing databases and creating a new one
+
+db_list =connect.list_database_names()
+print(db_list)
+
+if "python_db" in db_list:
+    print('The database already exists')
+else:
+    fist_db =connect["python_db"]
