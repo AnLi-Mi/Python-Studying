@@ -87,6 +87,27 @@ print ('----------SORTING Q3----------\n')
 for doc in first_col.find(query3).sort("name",-1):
     print(doc)
 
+# deleting duplicated documents
+
+count_query={"name":"Sandy"}
+del_query={"name":"Sandy"}
+
+viola_count = first_col.find(count_query).count()
+print(viola_count)
+
+i=1
+y=int(viola_count)
+
+while 1<(y-2):
+    first_col.delete_one(del_query)
+    i+=1
+
+for doc in first_col.find(query3).sort("name",-1):
+    print(doc)
+    
+
+
+
 
 
     
