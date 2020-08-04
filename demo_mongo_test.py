@@ -80,4 +80,13 @@ print ('----------Q3----------\n')
 for doc in first_col.find(query3):
     print(doc)
 
+
+# sorting resulte dsc
+
+print ('----------SORTING Q3----------\n')
+for doc in first_col.find(query3).sort("name",-1):
+    print(doc)
+
+
+
     
