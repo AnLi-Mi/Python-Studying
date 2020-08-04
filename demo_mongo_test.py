@@ -43,7 +43,22 @@ mydocs= [{ "name": "Amy", "address": "Apple st 652"},
 
 #inserting the list of dictionaries as documents to my collection
 
-insert = first_col.insert_many(mydocs)
-print(insert)
+# # insert = first_col.insert_many(mydocs)
+# #print(insert)
+
+# extracting all data from database
+
+for doc in first_col.find():
+    print(doc)
+
+# excluting 'address' from extraction
+
+for doc in first_col.find({},{"address":0}):
+    print(doc)
+
+# extracting one data from database
+
+ext_one = first_col.find_one()
+print(ext_one)
 
     
