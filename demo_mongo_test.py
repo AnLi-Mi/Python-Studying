@@ -13,4 +13,10 @@ print(db_list)
 if "python_db" in db_list:
     print('The database already exists')
 else:
-    fist_db =connect["python_db"]
+    first_db =connect["python_db"]
+
+#creating a collection in a new db
+
+first_col = first_db["clients"]
+db_col =first_db.list_collection_names()
+print(db_col)
