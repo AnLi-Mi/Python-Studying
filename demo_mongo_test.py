@@ -12,11 +12,38 @@ print(db_list)
 
 if "python_db" in db_list:
     print('The database already exists')
-else:
-    first_db =connect["python_db"]
+
+first_db =connect["python_db"]
 
 #creating a collection in a new db
 
-first_col = first_db["clients"]
 db_col =first_db.list_collection_names()
 print(db_col)
+
+if "clients" in db_col:
+    print('The collection already exists')
+
+first_col =first_db["clients"]
+
+
+#creating a dictionary with information/documents' content I want to include in the collection
+
+mydocs= [{ "name": "Amy", "address": "Apple st 652"},
+  { "name": "Hannah", "address": "Mountain 21"},
+  { "name": "Michael", "address": "Valley 345"},
+  { "name": "Sandy", "address": "Ocean blvd 2"},
+  { "name": "Betty", "address": "Green Grass 1"},
+  { "name": "Richard", "address": "Sky st 331"},
+  { "name": "Susan", "address": "One way 98"},
+  { "name": "Vicky", "address": "Yellow Garden 2"},
+  { "name": "Ben", "address": "Park Lane 38"},
+  { "name": "William", "address": "Central st 954"},
+  { "name": "Chuck", "address": "Main Road 989"},
+  { "name": "Viola", "address": "Sideway 1633"}]
+
+#inserting the list of dictionaries as documents to my collection
+
+insert = first_col.insert_many(mydocs)
+print(insert)
+
+    
