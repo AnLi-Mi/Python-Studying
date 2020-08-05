@@ -21,3 +21,17 @@ print(f'\n The array has {arr.shape} shape')
 print(f'\n The length of each element is {arr.itemsize} bytes')
 
 print('-------------------Q2----------------------')
+# Question 2: Create a 5X2 integer array from a range between 100 to 200
+#such that the difference between each element is 10
+
+
+arr1 = np.arange(100,201,10, dtype=None)
+arr2 = arr1.copy()
+arr3 = np.array_split(arr, 5)
+
+print(arr3)
+print(arr3[0])
+print(arr3[1])
+print(arr3[2])
+print(arr3[3])
+print(arr3[4])
