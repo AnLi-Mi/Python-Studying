@@ -74,4 +74,15 @@ res_80_100_v2 = db.restaurants.find(query2).limit(10)
 for res in res_80_100_v2:
     print(res)
 
+print('----------------------------Q6-----------------------------------')
 
+#Write a MongoDB query to find the restaurants that do not
+#prepare any cuisine of 'American' and their grade score more than
+#70 and latitude less than -65.754168.
+
+query = {"cuisine":{"$ne":"American"},"grades.score" : {"$gt":70},"address.coord":{"$lt":-65.754168}}
+
+result = col.find(query)
+
+for res in result:
+    print(res["name"])
