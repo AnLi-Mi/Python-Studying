@@ -28,22 +28,19 @@ first_col =first_db["clients"]
 
 #---creating a dictionary with information/documents' content I want to include in the collection
 
-mydocs= [{ "name": "Amy", "address": "Apple st 652"},
-  { "name": "Hannah", "address": "Mountain 21"},
-  { "name": "Michael", "address": "Valley 345"},
-  { "name": "Sandy", "address": "Ocean blvd 2"},
-  { "name": "Betty", "address": "Green Grass 1"},
-  { "name": "Richard", "address": "Sky st 331"},
-  { "name": "Susan", "address": "One way 98"},
-  { "name": "Vicky", "address": "Yellow Garden 2"},
-  { "name": "Ben", "address": "Park Lane 38"},
-  { "name": "William", "address": "Central st 954"},
-  { "name": "Chuck", "address": "Main Road 989"},
-  { "name": "Viola", "address": "Sideway 1633"}]
+mydocs= [
+         { 'name': 'John', 'address': 'Highway37'},
+         {'name': 'Hannah', 'address': 'Mountain 21'},
+{'name': 'Peter', 'address': 'Lowstreet 27'},
+         {'name': 'Sandy', 'address': 'Ocean blvd 2'},
+         {'name': 'Vicky', 'address': 'Yellow Garden 2'},
+         {'name': 'Chuck', 'address': 'Main Road 989'},
+{'name': 'Viola', 'address': 'Sideway 1633'}
+         ]
 
 #----inserting the list of dictionaries as documents to my collection-----
 
-# # insert = first_col.insert_many(mydocs)
+# #insert = first_col.insert_many(mydocs)
 # #print(insert)
 
 # ---extracting all data from database-------------------
@@ -125,7 +122,7 @@ print(f'{up.modified_count} documets were updated')
 for x in first_col.find():
     print(x)
     
-# adding new info (the same) to all documents
+# ----------adding new info (the same) to all documents-------
 
 query = {"name": { "$gt": "A" } }
 
@@ -136,7 +133,7 @@ first_col.update_many(query,new_value)
 for x in first_col.find():
     print(x)
 
-# chaging/incrementing numerical values of filtered documents
+# --------chaging/incrementing numerical values of filtered documents--
     
 query = {"name": "Ben" }
 
@@ -147,7 +144,7 @@ first_col.update_many(query,new_value)
 for x in first_col.find():
     print(x)
 
-# changing/updating fied names of filtered documents
+# ---------changing/updating fied names of filtered documents------------
 
 query = {"first_name": "Anatoll" }
 
@@ -158,7 +155,7 @@ first_col.update_one(query,new_value)
 for x in first_col.find():
     print(x)
 
-# removing field form filtered documets
+# ------removing field form filtered documets--------------
 
 query = {"first_name": "Anatoll" }
 
@@ -169,7 +166,7 @@ first_col.update_one(query,new_value)
 for x in first_col.find():
     print(x)
 
-# adding new document in case it's not found
+# --------------adding new document in case it's not found-------------
 
 query = {"name": "Mary" }
 
@@ -177,7 +174,25 @@ new_value = {"$set":{"name":"Mary", "age":28}}
 
 first_col.update_one(query,new_value,upsert=True)
 
-for x in first_col.find():
+for x in first_col.find().sort("name",1).limit(8):
+    print(x)
+
+# --------------filtering using 'or' operator-------------
+
+query = {"$or":[{"name": "Koko"}, {"address":{"$regex":"^Green"}}]}
+
+for x in first_col.find(query):
+    print(x)
+
+y=first_col.find(query).count()
+print(y)
+
+
+# --------------filtering using 'and' operator-------------
+print('------------')
+query = {"$and":[{"name": "Koko"}, {"address":"Main Road 989"}]}
+
+for x in first_col.find(query):
     print(x)
 
 
