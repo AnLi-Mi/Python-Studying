@@ -57,3 +57,21 @@ bronx_res = col.find(query).skip(5).limit(5)
 for res in bronx_res:
     print(res["name"])
 
+print('----------------------------Q5-----------------------------------')
+
+# Write a MongoDB query to find the restaurants that achieved a score,
+# more than 80 but less than 100
+
+query = {"$and":[{"grades.score" : {"$gt":80}}, {"grades.score" : {"$lt":100}}]}
+res_80_100 = col.find(query).limit(10)
+
+for res in res_80_100:
+    print(f'{res["name"]}')
+
+query2= {"grades": { "$elemMatch":{"score":{"$gt" : 80 , "$lt" :100}}}}
+res_80_100_v2 = db.restaurants.find(query2).limit(10)   
+
+for res in res_80_100_v2:
+    print(res)
+
+
