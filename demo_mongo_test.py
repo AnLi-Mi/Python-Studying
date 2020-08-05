@@ -107,6 +107,80 @@ while i<y:
 for doc in first_col.find().sort("name",-1):
     print(doc)
     
+# ----------updating documents-------------
+
+# changing/updating values of filtered documents
+query1 = {"first_name":"Anatol"}
+new_value1 = {"$set": {"first_name":"Anatoll"}}
+
+first_col.update_one(query1,new_value1)
+
+query2 = {"address" : {"$regex":"^M"}}
+new_value2 = {"$set": {"name":"Koko"}}
+
+up= first_col.update_many(query2,new_value2)
+
+print(f'{up.modified_count} documets were updated')
+
+for x in first_col.find():
+    print(x)
+    
+# adding new info (the same) to all documents
+
+query = {"name": { "$gt": "A" } }
+
+new_value = {"$set":{"age":30}}
+
+first_col.update_many(query,new_value)
+
+for x in first_col.find():
+    print(x)
+
+# chaging/incrementing numerical values of filtered documents
+    
+query = {"name": "Ben" }
+
+new_value = {"$inc":{"age":6}}
+
+first_col.update_many(query,new_value)
+
+for x in first_col.find():
+    print(x)
+
+# changing/updating fied names of filtered documents
+
+query = {"first_name": "Anatoll" }
+
+new_value = {"$rename":{"first_name":"name"}}
+
+first_col.update_one(query,new_value)
+
+for x in first_col.find():
+    print(x)
+
+# removing field form filtered documets
+
+query = {"first_name": "Anatoll" }
+
+new_value = {"$unset":{"last_name":1}}
+
+first_col.update_one(query,new_value)
+
+for x in first_col.find():
+    print(x)
+
+# adding new document in case it's not found
+
+query = {"name": "Mary" }
+
+new_value = {"$set":{"name":"Mary", "age":28}}
+
+first_col.update_one(query,new_value,upsert=True)
+
+for x in first_col.find():
+    print(x)
+
+
 
 
 
