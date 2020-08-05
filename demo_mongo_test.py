@@ -189,11 +189,18 @@ print(y)
 
 
 # --------------filtering using 'and' operator-------------
-print('------------')
+
 query = {"$and":[{"name": "Koko"}, {"address":"Main Road 989"}]}
 
 for x in first_col.find(query):
     print(x)
+
+# -------------displaying data nicely--------
+
+for x in first_col.find():
+    print(f"Client's name: {x['name']}")
+
+
 
 
 
