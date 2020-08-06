@@ -73,6 +73,22 @@ powered_array = np.power(added_array, 2)
 print(powered_array)
 
 
+print('-------------------Q6----------------------')
+
+# Question 6: Split the array into four equal-sized sub-arrays
+# Note: Create an 8X3 integer array from a range between 10 to 34 such that
+# the difference between each element is 1 and
+# then Split the array into four equal-sized sub-arrays.
+
+# creating an array
+
+arr = np.arange(10,34,1, dtype=int)
+print(arr)
+
+new_arr = np.array_split(arr, 4)
+print(new_arr)
+
+
 
 
 
