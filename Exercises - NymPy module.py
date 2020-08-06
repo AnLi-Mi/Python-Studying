@@ -85,8 +85,16 @@ print('-------------------Q6----------------------')
 arr = np.arange(10,34,1, dtype=int)
 print(arr)
 
-new_arr = np.array_split(arr, 4)
+# spliting into a 8x3 array
+
+new_arr = arr.reshape(8,3)
 print(new_arr)
+
+#spliting 4 sub-arrays 2x3
+new_arr = np.split(new_arr, 4)
+
+for x in new_arr:
+    print('\n', x,'\n')
 
 
 
