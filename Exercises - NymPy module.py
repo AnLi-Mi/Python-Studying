@@ -24,14 +24,11 @@ print('-------------------Q2----------------------')
 # Question 2: Create a 5X2 integer array from a range between 100 to 200
 #such that the difference between each element is 10
 
+#creating a 1D array using np.arrange:
+arr1 = np.arange(100,200,10, dtype=None)
+##print(arr1)
 
-arr1 = np.arange(100,201,10, dtype=None)
+#breaking the 1D array into 2D array using reshape
 arr2 = arr1.copy()
-arr3 = np.array_split(arr, 5)
-
+arr3 = arr2.reshape(5,2)
 print(arr3)
-print(arr3[0])
-print(arr3[1])
-print(arr3[2])
-print(arr3[3])
-print(arr3[4])
