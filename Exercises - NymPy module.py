@@ -33,23 +33,32 @@ arr2 = arr1.copy()
 arr3 = arr2.reshape(5,2)
 print(arr3)
 
-print('-------------------Q2----------------------')
+print('-------------------Q3----------------------')
 #Question 3: Following is the provided numPy array.
 #return array of items in the third column from all rows
 
 sampleArray = np.array([[11 ,22, 33], [44, 55, 66], [77, 88, 99]])
 
-# creating an empty list to populate
-new_list =[]
-
-# manually looping through arries and extracting elements with index [x, 2]
-
-new_list.append(sampleArray[0,2])
-new_list.append(sampleArray[1,2])
-new_list.append(sampleArray[2,2])
-
-
-print(new_list)
-new_array = np.array(new_list)
+new_array = sampleArray[...,2]
 print(new_array)
 print(type(new_array))
+
+print('-------------------Q4----------------------')
+# Question 4: Following is the given numpy array return array of odd rows
+#and even columns
+
+sampleArray = np.array([[3 ,6, 9, 12], [15 ,18, 21, 24], 
+[27 ,30, 33, 36], [39 ,42, 45, 48], [51 ,54, 57, 60]])
+
+
+# chosing starting row/column, double colon (skipping last row/column), choosing 'step'
+newArray = sampleArray[0::2,1::2]
+print(newArray)
+
+
+
+
+
+
+
+
