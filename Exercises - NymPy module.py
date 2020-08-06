@@ -55,6 +55,22 @@ sampleArray = np.array([[3 ,6, 9, 12], [15 ,18, 21, 24],
 newArray = sampleArray[0::2,1::2]
 print(newArray)
 
+print('-------------------Q5----------------------')
+# Question 5: Add the following two NumPy arrays and
+# Modify a result array by calculating the square of each element
+
+arrayOne = np.array([[5, 6, 9], [21 ,18, 27]])
+arrayTwo = np.array([[15 ,33, 24], [4 ,7, 1]])
+
+# using ufuncs add() func
+
+added_array = np.add(arrayOne,arrayTwo)
+print(added_array)
+
+# using ufuncs power() func
+
+powered_array = np.power(added_array, 2)
+print(powered_array)
 
 
 
