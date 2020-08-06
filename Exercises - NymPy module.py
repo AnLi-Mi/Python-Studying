@@ -62,12 +62,12 @@ print('-------------------Q5----------------------')
 arrayOne = np.array([[5, 6, 9], [21 ,18, 27]])
 arrayTwo = np.array([[15 ,33, 24], [4 ,7, 1]])
 
-# using ufuncs add() func
+# using ufuncs add()func
 
 added_array = np.add(arrayOne,arrayTwo)
 print(added_array)
 
-# using ufuncs power() func
+# using ufuncs power()func
 
 powered_array = np.power(added_array, 2)
 print(powered_array)
@@ -96,9 +96,20 @@ new_arr = np.split(new_arr, 4)
 for x in new_arr:
     print('\n', x,'\n')
 
+print('-------------------Q7.1----------------------')
+
+#Question 7.1; Sort following NumPy array by the second row 
+
+sampleArray = np.array([[34,43,73],[82,22,12],[53,94,66]])
+
+sort_row = sampleArray[:,sampleArray[1,:].argsort()]
+print(sort_row)
 
 
 
+print('-------------------Q7.2----------------------')
 
+#Question 7.2; Sort following NumPy array by the second column
 
+sampleArray = np.array([[34,43,73],[82,22,12],[53,94,66]])
 
