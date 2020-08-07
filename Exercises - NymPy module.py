@@ -140,7 +140,7 @@ sampleArray = np.array([[34,43,73],[82,22,12],[53,94,66]])
 
 print(sampleArray)
 
-# creating an empty list to populate it with the min elemets of each row (axis 0)
+# creating an empty list to populate it with the min elemets of each row (axis 1)
 min_row=[]
 
 # looping through all rows and extracting the lowest element
@@ -149,11 +149,24 @@ for row in sampleArray:
 
 print (f' the lowest elements of the rows are: {min_row}')
 
-# creating an empty list to populate it with the max elemets of each column (axis 1)
+# creating an empty list to populate it with the max elemets of each column (axis 0)
 max_col=[]
 
 # looping through all columns (turned into arrays) and extracting the highest element
 for i in range (0,3):
     max_col.append(np.max(sampleArray[:,i]))
        
-print (f' the highest elements of the columns are: {max_col}')        
+print (f' the highest elements of the columns are: {max_col}')
+
+# --------------------other solution--------------------------
+
+#solution using the np.amin/max function
+
+sampleArray = np.array([[34,43,73],[82,22,12],[53,94,66]])
+
+min_row2=np.amin(sampleArray, axis=1)
+
+print (f' the lowest elements of the rows are: {min_row2}')
+
+max_col2=np.amax(sampleArray, axis=0)
+print (f' the highest elements of the columns are: {max_col2}')
