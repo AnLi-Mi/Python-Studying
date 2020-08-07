@@ -184,3 +184,14 @@ newColumn = np.array([[10,10,10]])
 #selecting an element with index 1 from ewach arrey and replacing it with the given array
 sampleArray[:,1]=newColumn
 print(sampleArray)
+
+# --------------------other solution--------------------------
+
+#solution using deleting and inserting function
+arr= np.array([[10,10,10]])
+
+col_delete = np.delete(sampleArray, 1, axis= 1)
+print(col_delete)
+
+col_insert = np.insert(col_delete, 1, arr, axis= 1)
+print(col_insert)
