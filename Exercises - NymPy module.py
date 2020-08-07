@@ -170,3 +170,17 @@ print (f' the lowest elements of the rows are: {min_row2}')
 
 max_col2=np.amax(sampleArray, axis=0)
 print (f' the highest elements of the columns are: {max_col2}')
+
+print('-------------------Q9----------------------')
+
+# Question 9: Following is the input NumPy array delete column two and
+#insert following new column in its place.
+
+sampleArray = np.array([[34,43,73],[82,22,12],[53,94,66]])
+print(sampleArray)
+
+newColumn = np.array([[10,10,10]])
+
+#selecting an element with index 1 from ewach arrey and replacing it with the given array
+sampleArray[:,1]=newColumn
+print(sampleArray)
