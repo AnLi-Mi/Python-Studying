@@ -120,6 +120,7 @@ print('-------------------Q7.2----------------------')
 sampleArray = np.array([[34,43,73],[82,22,12],[53,94,66]])
 print(sampleArray)
 
+
 # defining a new order of the rows based on the sorted 3nd column (index 2)
 new_order_r = sampleArray[:,2].argsort()
 print(new_order_r)
@@ -129,3 +130,30 @@ print(new_order_r)
 
 new_arr_r = sampleArray[new_order_r,:]
 print (new_arr_r)
+
+print('-------------------Q8----------------------')
+
+#Question 8: Following is the 2-D array.
+#Print max from axis 0 and min from axis 1
+
+sampleArray = np.array([[34,43,73],[82,22,12],[53,94,66]])
+
+print(sampleArray)
+
+# creating an empty list to populate it with the min elemets of each row (axis 0)
+min_row=[]
+
+# looping through all rows and extracting the lowest element
+for row in sampleArray:
+    min_row.append(np.min(row))
+
+print (f' the lowest elements of the rows are: {min_row}')
+
+# creating an empty list to populate it with the max elemets of each column (axis 1)
+max_col=[]
+
+# looping through all columns (turned into arrays) and extracting the highest element
+for i in range (0,3):
+    max_col.append(np.max(sampleArray[:,i]))
+       
+print (f' the highest elements of the columns are: {max_col}')        
