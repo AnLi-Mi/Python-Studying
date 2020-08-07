@@ -101,15 +101,31 @@ print('-------------------Q7.1----------------------')
 #Question 7.1; Sort following NumPy array by the second row 
 
 sampleArray = np.array([[34,43,73],[82,22,12],[53,94,66]])
+print(sampleArray)
 
-sort_row = sampleArray[:,sampleArray[1,:].argsort()]
-print(sort_row)
+# defining a new order of columns based on the sorted 2nd row (index 1)
+new_order_c = sampleArray[1,:].argsort()
+print(new_order_c)
 
+# creating new array based on smapleArray with not changed order inside columns,
+#but reorganised order of columns according to 'new_order_c'
 
-
+new_arr_c = sampleArray[:,new_order_c]
+print (new_arr_c)
+    
 print('-------------------Q7.2----------------------')
 
-#Question 7.2; Sort following NumPy array by the second column
+#Question 7.2; Sort following NumPy array by the third column
 
 sampleArray = np.array([[34,43,73],[82,22,12],[53,94,66]])
+print(sampleArray)
 
+# defining a new order of the rows based on the sorted 3nd column (index 2)
+new_order_r = sampleArray[:,2].argsort()
+print(new_order_r)
+
+# creating new array based on smapleArray with not changed order inside the rows,
+#but reorganised order of rows according to 'new_order_r'
+
+new_arr_r = sampleArray[new_order_r,:]
+print (new_arr_r)
