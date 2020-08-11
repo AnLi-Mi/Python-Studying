@@ -1,4 +1,6 @@
 from flask import Flask, render_template,url_for
+import mysql.connector
+from mysql.connector import Error
 
 app=Flask(__name__)
 
@@ -14,11 +16,16 @@ def hello():
 def about():
     return render_template('about.html')
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
+@app.route('/showSignUp')
+def showSignUp():
+    return render_template('signup.html')
 
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
+
