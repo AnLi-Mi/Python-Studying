@@ -16,12 +16,21 @@
         <form class="pure-form" method="POST" action="/">
         Please enter your name:</br></br>
         <input type="text" name="username"></br></br>
+        Please enter your age:</br></br>
+        <input type="text" name="userage"></br></br>
         <button type="submit" class="pure-button pure-button-primary" value="submit">Send</button>
     </form>
-{{name}}
 </div>
+<br>
+<div>
 
+{% if name %}
+<p> Welcome to my site, {{name}}! </p>
+{% endif %}
 
-
+{% if age %}
+<p> You are {{fut}} years old</p>
+{% endif %}
+</div>
 </body>
 </html>
