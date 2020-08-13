@@ -1,14 +1,11 @@
-body {
+p {
     font-family: sans-serif;
-    text-align: center;
+    text-align: left;
 }
 
 h1 {
+    text-align: center;
     margin: 10;
     font-family: sans-serif;
-    color: blue;
-}
-
-p {
     color: red;
 }

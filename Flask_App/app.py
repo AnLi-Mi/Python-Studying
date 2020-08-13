@@ -4,6 +4,13 @@ from mysql.connector import Error
 
 app=Flask(__name__)
 
+@app.route('/', methods=['GET', 'POST'])
+def start():
+    name = ""
+    if reguest.method=='POST' and 'username' in request.form:
+        name = request.form.get('username')
+    return render_template('index.html', name=name)
+
 @app.route('/bucket_list')
 def main():
     return render_template('bucket_list.html')
