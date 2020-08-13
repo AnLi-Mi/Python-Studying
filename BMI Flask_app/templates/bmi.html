@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toying with Flask</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div>
+    <h1> BMI Calculator</h1>
+        <form class="pure-form" method="POST" action="/">
+        Please enter your name:</br></br>
+        <input type="text" name="username"></br></br>
+        Please enter your weight:</br></br>
+        <input type="number" name="userw"></br></br>
+        Please enter your hight:</br></br>
+        <input type="number" name="userh"></br></br>
+        <button type="submit" class="pure-button pure-button-primary" value="submit">Send</button>
+    </form>
+</div>
+<br>
+<div>
+
+{% if name %}
+<p>Hi {{name}}! </p>
+{% endif %}
+{% if weight, hight %}
+<p> Your BMI is {{BMI}} </p>
+{% endif %}
+</div>
+</body>
+</html>
