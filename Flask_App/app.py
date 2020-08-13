@@ -7,12 +7,13 @@ app=Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def start():
     name = ''
-    age = ''
-   
+    age =0
+    fut =0
     if request.method=='POST' and 'username' in request.form:
         name = request.form.get('username')
-        age = request.form.get('userage')        
-    return render_template('index.html', name=name, age=age)
+        age = int(request.form.get('userage'))
+        fut= (age+5)   
+    return render_template('index.html', name=name, age=age, fut=fut)
 
 @app.route('/bucket_list')
 def main():

@@ -17,7 +17,7 @@
         Please enter your name:</br></br>
         <input type="text" name="username"></br></br>
         Please enter your age:</br></br>
-        <input type="text" name="userage"></br></br>
+        <input type="number" name="userage"></br></br>
         <button type="submit" class="pure-button pure-button-primary" value="submit">Send</button>
     </form>
 </div>
@@ -27,9 +27,9 @@
 {% if name %}
 <p> Welcome to my site, {{name}}! </p>
 {% endif %}
-
 {% if age %}
-<p> You are {{fut}} years old</p>
+<p> You are {{age}} years old</p>
+<p> In 5 years you will be {{fut}} years old</p>
 {% endif %}
 </div>
 </body>
