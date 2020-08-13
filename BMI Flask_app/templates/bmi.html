@@ -14,12 +14,12 @@
 <div>
     <h1> BMI Calculator</h1>
         <form class="pure-form" method="POST" action="/">
-        Please enter your name:</br></br>
-        <input type="text" name="username"></br></br>
-        Please enter your weight:</br></br>
-        <input type="number" name="userw"></br></br>
-        Please enter your hight:</br></br>
-        <input type="number" name="userh"></br></br>
+            Please enter your name:</br></br>
+            <input type="text" name="username"></br></br>
+            Please enter your weight:</br></br>
+            <input type="number" name="userw"></br></br>
+            Please enter your hight:</br></br>
+            <input type="number" name="userh"></br></br>
         <button type="submit" class="pure-button pure-button-primary" value="submit">Send</button>
     </form>
 </div>
@@ -29,8 +29,8 @@
 {% if name %}
 <p>Hi {{name}}! </p>
 {% endif %}
-{% if weight, hight %}
-<p> Your BMI is {{BMI}} </p>
+{% if w , h %}
+<p>Your BMI is {{bmi}} ! </p>
 {% endif %}
 </div>
 </body>
