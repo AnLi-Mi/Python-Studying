@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Toying with Flask</title>
+    <title>Anna's BMI Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
@@ -13,13 +13,13 @@
 
 <div>
     <h1> BMI Calculator</h1>
-        <form method="POST" action="/">
+        <form class="pure-form" method="POST" action="/">
             Please enter your name:</br></br>
-            <input type="text" name="username"></br></br>
+            <input class="pure-input-rounded" type="text" name="username"></br></br>
             Please enter your weight in kg:</br></br>
-            <input type="number" step="0.01" name="userw"></br></br>
+            <input class="pure-input-rounded" type="number" step="0.01" name="userw"></br></br>
             Please enter your hight in m:</br></br>
-            <input type="number" step="0.01" name="userh"></br></br>
+            <input class="pure-input-rounded" type="number" step="0.01" name="userh"></br></br>
         <button type="submit" value="submit" class="button-warning">Send</button>
     </form>
 </div>
