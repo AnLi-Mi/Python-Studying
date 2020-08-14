@@ -13,17 +13,20 @@
 
     <div>
 
-        <form method="POST" action='/'>
-        What's your name? </br>
-        <input type="text" name="usersname"></br>
+        <form method="POST" action="/">
+            Please enter your name:</br></br>
+            <input type="text" name="username"></br></br>
+            <button type="submit" value="submit">Send</button>
         </form>
         </br>
+    </div>
+
+    <div>
 
         {% if name %}
-
-        <p> Hi {{name}}, welcome to the game!</p></br>
-
+        <p> Hi {{name}}! Welcome in the game </p>
         {% endif %}
+    </div>
 
     <!--    #<form method="POST" action='/'>
         Please choose: scisors, rock or paper:</br>

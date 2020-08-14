@@ -1,6 +1,6 @@
 #ROCK PAPER SCISORS
 
-from flask import Flask, request, render_template
+from flask import Flask, render_template, request
 import random
 from anna_module import greeting, srp_pull, rps_comparing, random_selection
 
@@ -13,11 +13,11 @@ def game():
     #comp=''
     #result=''
     if request.method=='POST' and 'username' in request.form:
-        name=request.form.get('username')
+        name = request.form.get('username')
       #  choice=request.form.get('userchoice')
        # comp=random_selection(srp_pull)
         #result=rps_comparing(comp, choice)
-    return render_template('index.html', name=name)
+    return render_template('index.html',  name=name)
     
 app.run()
 
