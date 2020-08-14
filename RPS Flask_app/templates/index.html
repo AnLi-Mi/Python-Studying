@@ -10,5 +10,29 @@
 </head>
 <body>
     <h1> ! It will be a rock-paper-scisors game ! </h1>
+
+    <div>
+
+        <form>
+        What's your name?
+        <input type="text" name="usersname">
+        </form>
+        {% if name %}
+
+        <p> Hi {{name}}, welcome to the game!</p></br>
+        {% endif %}
+
+        <form>
+        Please choose: scisors, rock or paper:
+        <input type="text" name="userchoice">
+        <button value='Submit'>Done</button>
+        </form>
+
+    </div>
+    <div>
+        {% if choice, result, comp %}
+        {{result}}
+        {% end if %}
+    </div>
 </body>
 </html>
