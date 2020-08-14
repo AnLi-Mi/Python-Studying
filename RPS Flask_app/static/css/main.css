@@ -13,8 +13,20 @@ h1 {
 }
 
 .result {
-font-size: 24px;
-font-weight:800;
-color:rgb(255, 99, 71);
+    font-size: 24px;
+    font-weight:800;
+    color:rgb(255, 99, 71);
 
+}
+
+
+.button-secondary {
+    background: rgb(255, 99, 71);
+    color: white;
+    border-radius: 15px;
+    font-size: 110%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
