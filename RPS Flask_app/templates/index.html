@@ -9,10 +9,10 @@
     <title> Rock-Paper-Scisors </title>
 </head>
 <body>
-    <h1> ! It will be a rock-paper-scisors game ! </h1>
+    <h1> Rock - Peper - Scisors </h1>
 
     <div>
-
+        </br>
         <form method="POST" action="/">
             Please enter your name:</br></br>
             <input type="text" name="username"></br></br>
@@ -24,14 +24,13 @@
     </div>
 
     <div>
-            {% if name, choice, comp, result %}
-        <p> Hi {{name}}, welcome in the game! You chose {{choice}} </p>
-        <p> Computer chose {{comp}} </p>
+        {% if name, choice, comp, result %}
+        <p> Hi {{name}}, welcome in the game! </p>
+        <p> You chose {{choice}} and the computer chose {{comp}}. </p>
         <p> {{result}} </p>
         {% endif %}
         </br></br>
     </div>
-
 
 </body>
 </html>

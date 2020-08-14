@@ -22,16 +22,6 @@ def game():
 app.run()
 
 
-#name=input('Enter your name')
-
-#greeting(name)
-
-#choice=input('What are you choosing - rock, paper or scisors?: ')
-
-#comp = random_selection(srp_pull)
-
-#rps_comparing(comp, choice)
-
 
 
 
