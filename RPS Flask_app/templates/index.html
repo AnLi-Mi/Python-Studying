@@ -24,12 +24,14 @@
     </div>
 
     <div>
-            {% if name, choice %}
+            {% if name, choice, comp, result %}
         <p> Hi {{name}}, welcome in the game! You chose {{choice}} </p>
+        <p> Computer chose {{comp}} </p>
+        <p> {{result}} </p>
         {% endif %}
         </br></br>
     </div>
 
-    
+
 </body>
 </html>
