@@ -13,26 +13,29 @@
 
     <div>
 
-        <form>
-        What's your name?
-        <input type="text" name="usersname">
+        <form method="POST" action='/'>
+        What's your name? </br>
+        <input type="text" name="usersname"></br>
         </form>
+        </br>
+
         {% if name %}
 
         <p> Hi {{name}}, welcome to the game!</p></br>
+
         {% endif %}
 
-        <form>
-        Please choose: scisors, rock or paper:
+    <!--    #<form method="POST" action='/'>
+        Please choose: scisors, rock or paper:</br>
         <input type="text" name="userchoice">
         <button value='Submit'>Done</button>
-        </form>
+        </form> -->
 
-    </div>
+    <!-- </div>
     <div>
         {% if choice, result, comp %}
         {{result}}
-        {% end if %}
-    </div>
+        {% endif %}
+    </div> -->
 </body>
 </html>

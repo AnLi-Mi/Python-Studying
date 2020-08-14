@@ -9,15 +9,15 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def game():
     name=''
-    choice=''
-    comp=''
-    result=''
-    if request.method=='POST' and 'userchoice' in request.form:
+    #choice=''
+    #comp=''
+    #result=''
+    if request.method=='POST' and 'username' in request.form:
         name=request.form.get('username')
-        choice=request.form.get('userchoice')
-        comp=random_selection(srp_pull)
-        result=rps_comparing(comp, choice)
-    return render_template('index.html', name=name, result=result, comp=comp)
+      #  choice=request.form.get('userchoice')
+       # comp=random_selection(srp_pull)
+        #result=rps_comparing(comp, choice)
+    return render_template('index.html', name=name)
     
 app.run()
 
