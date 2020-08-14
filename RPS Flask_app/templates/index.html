@@ -16,29 +16,20 @@
         <form method="POST" action="/">
             Please enter your name:</br></br>
             <input type="text" name="username"></br></br>
+            Please choose- scisors, rock, paper:</br></br>
+            <input type="text" name="userchoice"></br></br>
             <button type="submit" value="submit">Send</button>
         </form>
-        </br>
+        </br></br>
     </div>
 
     <div>
-
-        {% if name %}
-        <p> Hi {{name}}! Welcome in the game </p>
+            {% if name, choice %}
+        <p> Hi {{name}}, welcome in the game! You chose {{choice}} </p>
         {% endif %}
+        </br></br>
     </div>
 
-    <!--    #<form method="POST" action='/'>
-        Please choose: scisors, rock or paper:</br>
-        <input type="text" name="userchoice">
-        <button value='Submit'>Done</button>
-        </form> -->
-
-    <!-- </div>
-    <div>
-        {% if choice, result, comp %}
-        {{result}}
-        {% endif %}
-    </div> -->
+    
 </body>
 </html>
