@@ -50,10 +50,12 @@ def met():
 def database():
     results=''
     user_choice=''
+    order=''
     full_query = ''
     if request.method == 'POST' and 'userquery' in request.form:
         user_choice = request.form.get('userquery')
-        full_query = "SELECT * FROM " + user_choice
+        order = request.form.get('userorder')
+        full_query = "SELECT * FROM " + user_choice + " ORDER BY "+ user_choice +"_Name " + order 
         results = executing_query(full_query)
     return render_template('data.html', results=results, full_query=full_query, user_choice=user_choice)
 
