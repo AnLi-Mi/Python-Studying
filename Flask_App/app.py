@@ -46,12 +46,14 @@ def met():
 
 
 
-@app.route('/data')
+@app.route('/data', methods=['GET','POST'])
 def database():
     results=''
-    query = "SELECT * FROM hospital"
-    results = executing_query(query)
-    return render_template('data.html', results=results)
+    q=''
+    if request.method == 'POST' and 'userquery' in request.form:
+        q = request.form.get('userquery')
+        results = executing_query(q)
+    return render_template('data.html', results=results, q=q)
 
 
 def executing_query(query):

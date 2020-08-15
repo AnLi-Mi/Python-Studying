@@ -9,11 +9,31 @@
 
 </head>
 <body>
+
+<div>
     <h1>Hej!!</h1></br></br>
 
-    {% for row in results %}
+    <form method="POST" action="/data">
+    Enter the SQL query: </br></br>
+    <input name = "userquery" type= "text"> </br></br>
+    <button value= "submit" type="submit">Search</button> </br></br>
+</form>
+
+</div>
+
+<div>
+
+{% if results %}
+{{results}}
+{% endif %}
+
+
+
+<!--    {% for row in results %}
      Hospital name: {{ row[1] }} </br>
-    {% endfor %}
+    {% endfor %}-->
+
+</div>
 
 </body>
 </html>
