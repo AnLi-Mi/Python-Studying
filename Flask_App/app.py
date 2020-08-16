@@ -54,11 +54,27 @@ def database():
     full_query = ''
     if request.method == 'POST' and 'userquery' in request.form:
         user_choice = request.form.get('userquery')
-        order = request.form.get('userorder')
-        full_query = "SELECT * FROM " + user_choice + " ORDER BY "+ user_choice +"_Name " + order 
+        #order = request.form.get('userorder')
+        full_query = '''SELECT Hospital_Name h, Doctor_Name d
+                        FROM Hospital h
+                        JOIN Doctor d
+                        ON h.Hospital_ID=d.Hospital_ID
+                        WHERE Hospital_name = "'''+ user_choice +'";'
         results = executing_query(full_query)
     return render_template('data.html', results=results, full_query=full_query, user_choice=user_choice)
 
+
+def connect_msql():
+    conn = mysql.connect()
+    if (conn):
+    # Carry out normal procedure
+        print ("Connection successful")
+    else:
+    # Terminate
+        print ("Connection unsuccessful")
+
+
+    
 
 def executing_query(query):
     conn = mysql.connect()
