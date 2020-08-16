@@ -1,11 +1,14 @@
+body {
+ text-align: center;
+ background:  #e5eaf5;
+ font-family: sans-serif;
+}
+
 p {
     font-family: sans-serif;
     text-align: left;
 }
 
 h1 {
-    text-align: center;
-    margin: 10;
-    font-family: sans-serif;
-    color: red;
+    color: #a28089;
 }
