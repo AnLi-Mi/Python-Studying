@@ -15,7 +15,7 @@
 
     <form method="POST" action="/data">
     To check the list of doctor type in the name of the hospital: </br></br>
-    <input class="pure-input-rounded" name = "userquery" type= "text"> </br></br>
+    <input name = "userquery" type= "text"> </br></br>
     <!--How would you like to display the list - asc or desc: </br></br>
     <input name = "userorder" type= "text"> </br></br>-->
     <button value= "submit" type="submit">Search</button> </br></br>
@@ -30,7 +30,7 @@
     {% endif %}
 
 <ul>    {% for row in results %}
-    <li> dr. {{row[1]}} </li>
+    <li > dr. {{row[1]}} </li>
     {% endfor %}
 </ul>
 

@@ -12,3 +12,17 @@ p {
 h1 {
     color: #a28089;
 }
+
+ul {
+  display: table;
+  margin: 0 auto;
+}
+
+input {
+    border-radius: 15px;
+}
+
+button {
+    border-radius: 15px;
+    background-color: #a28089;
+}
