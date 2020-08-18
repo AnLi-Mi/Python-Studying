@@ -55,9 +55,9 @@ def database():
     if request.method == 'POST' and 'userquery' in request.form:
         user_choice = request.form.get('userquery')
         #order = request.form.get('userorder')
-        full_query = '''INSERT INTO doctor (Doctor_Name, Hospital_Id, Joining_Date)
+        full_query = '''INSERT INTO doctor (Doctor_ID, Doctor_Name, Hospital_Id, Joining_Date)
                         VALUES ('''+ user_choice +");"
-        results = executing_query(full_query)
+        commit_executing_query(full_query)
     return render_template('data.html', results=results, full_query=full_query, user_choice=user_choice)
 
 
@@ -76,12 +76,22 @@ connect_msql()
 
     
 
-def executing_query(query):
+def fetch_executing_query(query):
     conn = mysql.connect()
     cursor =conn.cursor()
     cursor.execute(query)
     results = cursor.fetchall()
     return results
+
+def commit_executing_query(query):
+    conn = mysql.connect()
+    cursor =conn.cursor()
+    cursor.execute(query)
+    conn.commit()
+    
+
+
+    
 
 
 
