@@ -45,6 +45,15 @@ def met():
         return "I'm using GET method"
 
 
+@app.route('/doctors', methods=['GET'])
+def doctors():
+    results=''
+    full_query = ''
+    full_query = "SELECT * FROM doctor"
+    results=fetch_executing_query(full_query)
+    return render_template('doctors.html', results=results)
+
+
 
 @app.route('/data', methods=['GET','POST'])
 def database():
