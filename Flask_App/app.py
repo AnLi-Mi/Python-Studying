@@ -55,10 +55,11 @@ def database():
     if request.method == 'POST' and 'userquery' in request.form:
         user_choice = request.form.get('userquery')
         #order = request.form.get('userorder')
-        full_query = '''INSERT INTO doctor (Doctor_ID, Doctor_Name, Hospital_Id, Joining_Date)
-                        VALUES ('''+ user_choice +");"
+        full_query = "UPDATE doctor SET Doctor_Name = '" + user_choice + "' WHERE Doctor_Name = 'David';"
         commit_executing_query(full_query)
     return render_template('data.html', results=results, full_query=full_query, user_choice=user_choice)
+
+
 
 
 def connect_msql():
