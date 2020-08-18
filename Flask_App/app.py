@@ -50,12 +50,14 @@ def met():
 def database():
     results=''
     user_choice=''
+    user_update=''
     order=''
     full_query = ''
     if request.method == 'POST' and 'userquery' in request.form:
         user_choice = request.form.get('userquery')
+        user_update = request.form.get('userupdate')
         #order = request.form.get('userorder')
-        full_query = "UPDATE doctor SET Doctor_Name = '" + user_choice + "' WHERE Doctor_Name = 'David';"
+        full_query = "UPDATE doctor SET Doctor_Name = '" + user_update + "' WHERE Doctor_Name = '" + user_choice +"';"
         commit_executing_query(full_query)
     return render_template('data.html', results=results, full_query=full_query, user_choice=user_choice)
 
