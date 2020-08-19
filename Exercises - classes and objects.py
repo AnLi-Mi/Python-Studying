@@ -38,7 +38,41 @@ class Songs():
 happy_birthday=Songs(["May god bless you, ","Have a sunshine on you,","Happy Birthday to you !"])
 
 happy_birthday.sing_me_a_song()
-            
 
 
+print ('--------------------------------------------------------------')
+
+# Exercise 3 Printing lines of song - like karaooke
+
+
+class Lunch():
+    def __init__(self, menu):
+        self.menu=menu
+
+    def menu_price(self):
+        if self.menu=="menu1":
+            print (f'Your choice: {self.menu} price 12.00')
+        elif self.menu=="menu2":
+            print (f'Your choice: {self.menu} price 13.00')
+        else:
+             print (f'Error in menu')
+
+
+
+Paul = Lunch("menu1")
+
+Paul.menu_price()
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
