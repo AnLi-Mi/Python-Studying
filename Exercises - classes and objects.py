@@ -88,7 +88,8 @@ print ('--------------------------------------------------------------')
 
 def int_rom_conv(number):
 
-    rom=[]
+    rom=[] # empty list to populate it with with roman numbers
+    elements=[] # empty list to populate with the elements of the sting to turn them to roman numbers
     int_rom = {1:'I',
                4:'IV',
                5:'V',
@@ -102,12 +103,23 @@ def int_rom_conv(number):
                 500:'D',
                 900:'CM',
                 1000:'M'}
+    a=1000 # used to indicate decimal level of a given element 
+    i=0 #used to point an index of of a given sting
+    while i<4: #
+         y = number[i]
+         y =int(y)
+         x = y*a
+         elements.append(x)
+         a=a/10
+         i+=1
+        
 
-    for n in number:
+    for n in elements:
         n=int(n)
         rom.append(int_rom[n])
 
-    print (rom)
+    print (elements)
+    print(rom.join(''))
     
              
 int_rom_conv("1555")
