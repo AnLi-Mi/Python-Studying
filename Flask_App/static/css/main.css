@@ -26,3 +26,9 @@ button {
     border-radius: 15px;
     background-color: #a28089;
 }
+
+.table_button
+ {
+     padding-right: 10px;
+     background-color: red;
+ }

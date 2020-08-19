@@ -17,27 +17,27 @@
 </div>
 
 <table class="pure-table">
-        <tbody>
 
 
 
     {% for row in results %}
+    <tbody>
 
     <tr>
         <td>{{row[0]}}</td>
-        <td>{{row[1]}}</td>
+        <td style='text-align:left'> {{row[1]}}  <button style='text-align:right' class="table_button" onclick="document.location='http://127.0.0.1:5000/data'">  Update  </button></td>
         <td>{{row[2]}}</td>
         <td>{{row[3]}}</td>
         <td>{{row[4]}}</td>
         <td>{{row[5]}}</td>
         <td>{{row[6]}}</td>
-        <td><button onclick=="http://127.0.0.1:5000/data">Update</button></td>
     </tr>
 
 </tbody>
+    {% endfor %}
 </table>
 
-    {% endfor %}
+
 
 
 
