@@ -42,7 +42,7 @@ happy_birthday.sing_me_a_song()
 
 print ('--------------------------------------------------------------')
 
-# Exercise 3 Printing lines of song - like karaooke
+# Exercise 3 Printing out the price of chosen menu
 
 
 class Lunch():
@@ -63,9 +63,22 @@ Paul = Lunch("menu1")
 
 Paul.menu_price()
 
+print ('--------------------------------------------------------------')
 
+# Exercise 4 Printing variables of a point in space
 
+class Point3D():
+    def __init__(self, x, y, z):
+        self.x=x
+        self.y=y
+        self.z=z
 
+    def __repr__(self):
+        return "(%d, %d, %d)" % (self.x, self.y, self.z)
+
+my_point=Point3D(1,2,3)
+
+print(my_point)
 
 
 
