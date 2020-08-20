@@ -84,45 +84,54 @@ print ('--------------------------------------------------------------')
 
 # Exercise 5 Turning intiger in to roman number
 
+class Years:
 
+    int_to_rom_dic = {1:'I',
+                       4:'IV',
+                      5: 'V',
+                      9:'IX',
+                       10:'X',
+                    40:'XL',
+                    50:'L',
+                    90:'XC',
+                    100:'C',
+                    400:'CD',
+                    500:'D',
+                    900:'CM',
+                   1000:'M'}
 
-def int_rom_conv(number):
+    def __init__(self, number):
+        self.number = number
+    
 
-    rom=[] # empty list to populate it with with roman numbers
-    elements=[] # empty list to populate with the elements of the sting to turn them to roman numbers
-    int_rom = {1:'I',
-               4:'IV',
-               5:'V',
-               9: 'IX',
-               10:'X',
-                40:'XL',
-                50:'L',
-                90:'XC',
-                100:'C',
-                400:'CD',
-                500:'D',
-                900:'CM',
-                1000:'M'}
-    a=1000 # used to indicate decimal level of a given element 
-    i=0 #used to point an index of of a given sting
-    while i<4: #
-         y = number[i]
-         y =int(y)
-         x = y*a
-         elements.append(x)
-         a=a/10
-         i+=1
+    def int_rom_conv(self):
         
+        rom=[] # empty list to populate it with with roman numbers
+        elements=[] # empty list to populate with the elements of the sting to turn them to roman numbers
+        a=1000 # used to indicate decimal level of a given element 
+        i=0 #used to point an index of of a given sting
+        while i<len(self.number): # looping through all elements of the string to convert them into decimel format
+             y = self.number[i]
+             y =int(y)
+             x = y*a
+             elements.append(int(x))
+             a=a/10
+             i+=1
+        print(elements)   
 
-    for n in elements:
-        n=int(n)
-        rom.append(int_rom[n])
+        for n in elements: # converting all ememnts to roman numbers
+            #n=int(n)
+            rom.append(self.int_to_rom_dic[n])
+            
 
-    print (elements)
-    print(rom.join(''))
+        
+        print(''.join(rom))
+
+year1=Years('1555')
+year1.int_rom_conv()
     
              
-int_rom_conv("1555")
+
 
 
             
