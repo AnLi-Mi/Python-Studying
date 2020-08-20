@@ -208,6 +208,38 @@ circ1.perimeter()
 circ1.area_ins_reg_hex()
 circ1.area_des_reg_hex()
 
+#Exercise 8: Create a class that collects variables of objects as an input
+
+class Create_Variables:
+
+    def __init__(self):
+        self.name=''
+        self.surname=''
+        
+        
+
+    def collect_info(self):
+        self.name= (input('Enter your name: '))
+        self.surname= (input('Enter your surname: '))
+
+    def create_email(self):
+        self.email = self.name +'.'+ self.surname+'@company.com'
+
+
+obj1=Create_Variables()
+print(obj1.__dict__)
+
+obj1.create_email()
+print(obj1.__dict__)
+
+obj1.collect_info()
+print(obj1.__dict__)
+
+obj1.create_email()
+print(obj1.__dict__)
+
+        
+
 
                                           
 
