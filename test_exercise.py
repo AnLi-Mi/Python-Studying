@@ -5,4 +5,4 @@ class TestBase(unittest.TestCase):
 
     def test_area(self):
         result = unittest_exer_base.area(5)
-        self.asserEqual(result, 78.5) 
+        self.assertEqual(result, 78.54 ) 
