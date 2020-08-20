@@ -137,9 +137,7 @@ class Years:
         for n in elements: # converting all ememnts to roman numbers
             #n=int(n)
             rom.append(self.int_to_rom_dic[n])
-            
 
-        
         print(''.join(rom))
 
 year1=Years('1555')
@@ -147,6 +145,36 @@ year1.int_rom_conv()
 
 year2=Years('1919')
 Years.int_rom_conv(year2)
+
+print ('------------------------------------------------------------')
+
+#Exercise 6: Write a Python class to reverse a string word by word.
+#Input string : 'hello .py'
+#Expected Output : '.py hello'
+
+
+class Reversed:
+
+    def __init__(self, string):
+        self.string=string
+
+    def reverse_w(self):
+        print ("Input string is: {}".format(self.string))
+        words=list(self.string.split(' ')) #spliting the string into separate words
+        reverted_words=words[::-1] #reverting the list of separated words
+        new_string=' '.join(reverted_words) #turning the list into string again
+        print("Reverted string is: {}".format(new_string))
+        
+
+string1=Reversed("Ala ma kota")
+string1.reverse_w()
+        
+        
+
+
+
+        
+        
 
     
              
