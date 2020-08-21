@@ -34,6 +34,66 @@ class Circle:
         return area_des_hex
 
 
+class Years:
+
+    int_to_rom_dic = {1:'I',
+                      2: 'II',
+                      3: 'III',
+                       4:'IV',
+                      5: 'V',
+                      6: 'VI',
+                      7: 'VII',
+                      8: 'VIII',
+                      9:'IX',
+                       10:'X',
+                      20:'XX',
+                      30:'XXX',
+                    40:'XL',
+                    50:'L',
+                      60:'LX',
+                      70:'LXX',
+                      80:'LXXX',
+                    90:'XC',
+                    100:'C',
+                      200:'CC',
+                      300:'CCC',
+                      400:'CD',
+                    500:'D',
+                      600:'DC',
+                      700:'DCC',
+                      800:'DCCC',
+                    900:'CM',
+                   1000:'M',
+                      2000:'MM'}
+
+    def __init__(self, number):
+        self.number = number
+    
+
+    def int_rom_conv(self):
+              
+        rom=[] # empty list to populate it with with roman numbers
+        elements=[] # empty list to populate with the elements of the sting to turn them to roman numbers
+        a=1000 # used to indicate decimal level of a given element 
+        i=0 #used to point an index of of a given sting
+        while i<len(self.number): # looping through all elements of the string to convert them into decimel format
+             y = self.number[i]
+             y =int(y)
+             x = y*a
+             elements.append(int(x))
+             a=a/10
+             i+=1
+        #print(elements)   
+
+        for n in elements: # converting all ememnts to roman numbers
+            n=int(n)
+            rom.append(self.int_to_rom_dic[n])
+
+        result=(''.join(rom))
+
+        return result
+
+
 
 
 

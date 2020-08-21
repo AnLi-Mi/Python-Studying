@@ -22,3 +22,11 @@ class TestBase(unittest.TestCase):
         obj1 = u.Circle(5)
         result = u.Circle.area_des_reg_hex(obj1)
         self.assertEqual(result, 86.6 )
+
+
+    def test_Years(self):
+        obj1 = u.Years('1555')
+        result=u.Years.int_rom_conv(obj1)
+        self.assertEqual(result, "MDLV" )
+        
+        
