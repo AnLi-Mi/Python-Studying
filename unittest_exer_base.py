@@ -1,32 +1,30 @@
-def area(r):
+class Circle:
+    
     import math
-    area_c= (math.pi)*(r**2)
-    x = round(area_c,2)
-    print(x)
-    return x  
+    
+    def __init__(self, radius):
+        self.radius=radius
 
-def perimeter(r):
-    import math
-    perimeter_c= 2*(math.pi)*r
-    x = round(perimeter_c,2)
-    print(x)
-    return x
-
-def area_ins_reg_hex(r):
-    import math
-    area_ins_hex =(3*(r**2)*(math.sqrt(3)))/2
-    x = round(area_ins_hex,2)
-    print(x)
-    return x 
-
-def area_des_reg_hex(r):
-    import math
-    area_des_hex =2*(r**2)*(math.sqrt(3))
-    x = round(area_des_hex,2)
-    print(x)
-    return x
-
-area(5)
-perimeter(5)
-area_ins_reg_hex(5)
-area_des_reg_hex(5)
+    def area(self):
+        import math
+        area = (math.pi)*(self.radius**2)
+        print ("The area of this circele is {} square units".format(round(area,2)))
+        return area
+    
+    def perimeter(self):
+        import math
+        perimeter = 2*(math.pi)*self.radius
+        print ("The perimeter of this circele is {} units".format(round(perimeter,2)))
+        return perimeter
+    
+    def area_ins_reg_hex(self):
+        import math
+        area_ins_hex =(3*(self.radius**2)*(math.sqrt(3)))/2
+        print ("The area of a regular hexagon inscribed in this circele is {} square units".format(round(area_ins_hex,2)))
+        return area_ins_hex
+    
+    def area_des_reg_hex(self):
+        import math
+        area_des_hex =2*(self.radius**2)*(math.sqrt(3))
+        print ("The area of a regular hexagon desscribed on this circele is {} square units".format(round(area_des_hex,2)))    
+        return area_des_hex
