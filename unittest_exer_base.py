@@ -30,13 +30,10 @@ class Circle:
         import math
         area_des_hex =2*(self.radius**2)*(math.sqrt(3))
         print ("The area of a regular hexagon desscribed on this circele is {} square units".format(round(area_des_hex,2)))    
-        area_des_hex = area_des_hex(area,2)
+        area_des_hex = round(area_des_hex,2)
         return area_des_hex
 
-obj1
 
-area(4)
-perimeter(4)
 
 
 
