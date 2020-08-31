@@ -28,7 +28,7 @@ num = int(input(f'Choose random number between 1 and 10:  '))
 while num not in range (1,10) :
     num = (int(input(f'Wrong number, please choose one between 1 and 10: ')))
     
-# repeting the messeged as many times as user requested   
+# repeating the messege as many times as user requested   
 if num in range (1,10):
     for i in range (num):
         print (f'Hi {name}! You will turn 100 in {100-age} years. It will be year {current_yr + 100 - age}.' )

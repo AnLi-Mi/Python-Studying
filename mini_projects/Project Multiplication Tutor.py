@@ -1,3 +1,6 @@
+# Create a machine that quizes the user from the multiplication of random numbers
+#in a given range. After the quizing game the user can see how many answers he gave correctly 
+
 import random
 from time import time as t
 
