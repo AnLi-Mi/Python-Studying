@@ -16,7 +16,7 @@ The folder 'trying_learning_exercises' is my rough draft where I learn and try o
 
 <h4> 'mini-projects' </h4>
 
-The folder 'mini-projects' is packed with simple but actually functioning and usable programs. They are mainly products of various programming challenges for beginners (like games or generators), simple programs to run CRUD queries on various databases or interactive sites using Web Frameworks. I return to them every so often when I come up with a new solution after learning a new skill. 
+The folder 'mini-projects' is packed with simple but actually functioning and usable programs. The description of the purpose of the program is commented out at the beggining of each code. They are mainly products of various programming challenges for beginners (like games or generators), simple programs to run CRUD queries on various databases or interactive sites using Web Frameworks. I return to them every so often when I come up with a new solution after learning a new skill. 
 
 <h2>Technologies</h2> 
 
