@@ -21,3 +21,16 @@ r = requests.get('http://ws.audioscrobbler.com/2.0/', headers=headers, params=pa
 print(r.status_code)
 
 
+def lastfm_get(payload):
+    headers = {'user-agent': USER_AGENT}
+    url = 'http://ws.audioscrobbler.com/2.0/'
+
+    
+    payload['api_key'] = API_KEY
+    payload['format'] = 'json'
+
+    response = requests.get(url, headers=headers, params=payload)
+    return response
+
+print(lastfm_get(payload).json())
+
