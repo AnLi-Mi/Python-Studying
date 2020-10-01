@@ -58,35 +58,51 @@ def top_artists(number_of_first_top):
 print ('TOP 100 artists are:')
 top_artists(100)
 
-responses = []
+def rate_limit_calls():
 
-page = 1
-total_pages = 99999 
+    responses = []
 
-while page <= total_pages:
-    payload = {
-        'method': 'chart.gettopartists',
-        'limit': 500,
-        'page': page
-    }
+    page = 1
+    total_pages = 99999 
 
-    # print some output so we can see the status
-    print(f"Requesting page {page}/{total_pages}")
-    # clear the output to make things neater
-    #clear_output(wait = True)
+    while page <= total_pages:
+        payload = {
+            'method': 'chart.gettopartists',
+            'limit': 5,
+            'page': page
+        }
 
-    response = lastfm_get(payload)
+        # print some output so we can see the status
+        print(f"Requesting page {page}/{total_pages}")
 
-    # extract pagination info
-    page = int(response['artists']['@attr']['page'])
-    total_pages = int(response['artists']['@attr']['totalPages'])
+        # clear the output to make things neater
+        #clear_output(wait = True)
 
-    # append response
-    responses.append(response)
+        response = lastfm_get(payload)
 
-    # if it's not a cached result, sleep
-    if not getattr(response, 'from_cache', False):
-        time.sleep(0.25)
+        # extract pagination info
+        page = int(response['artists']['@attr']['page'])
+        total_pages = int(response['artists']['@attr']['totalPages'])
 
-    # increment the page number
-    page += 1
+        # append response
+        responses.append(response)
+
+        # if it's not a cached result, sleep
+        if not getattr(response, 'from_cache', False):
+            time.sleep(0.25)
+
+        # increment the page number
+        page += 1
+
+        return responses
+
+rate_limit_calls()
+
+
+import pandas as pd
+
+r0 = responses[0]
+r0_json = r0
+r0_artists = r0_json['artists']['artist']
+r0_df = pd.DataFrame(r0_artists)
+r0_df.head()
