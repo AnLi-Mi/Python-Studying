@@ -1,24 +1,13 @@
 import requests
-
-headers = {'user-agent': 'TestujeAPI-Anna'}
-
-r_api = requests.get('http://ws.audioscrobbler.com/2.0/', headers=headers)
+import json
 
 API_KEY = '59df0d91a02d6acff62b031edede3254'
 USER_AGENT = 'TestujeAPI-Anna'
 
-headers = {
-    'user-agent': USER_AGENT
-}
+def jsonprint(response):
+    response = json.dumps(response, sort_keys=True, indent=4)
+    print(response)
 
-payload = {
-    'api_key': API_KEY,
-    'method': 'chart.gettopartists',
-    'format': 'json'
-}
-
-r = requests.get('http://ws.audioscrobbler.com/2.0/', headers=headers, params=payload)
-print(r.status_code)
 
 
 def lastfm_get(payload):
@@ -28,9 +17,36 @@ def lastfm_get(payload):
     
     payload['api_key'] = API_KEY
     payload['format'] = 'json'
+    
 
     response = requests.get(url, headers=headers, params=payload)
-    return response
+    return response.json()
 
-print(lastfm_get(payload).json())
+
+
+def top_artists(number_of_first_top):
+    r=lastfm_get({'method':'chart.gettopartists'})
+    page = 1
+    last_page= int(r['artists']['@attr']['total'])
+    position = 1
+    last_position = 50
+    
+    
+
+    while page < last_page +1:
+        result = lastfm_get({'method':'chart.gettopartists', 'page':page})             
+        while position < last_position:
+            print(f"Postion {position+49*(page-1)} - {result['artists']['artist'][position]['name']}")
+           # artist_name.append(artist)
+            position+=1
+            if (position+49*(page-1))==number_of_first_top+1:
+                break 
+        if (position+49*(page-1))==number_of_first_top+1:
+                break    
+        position=1     
+        page+=1
+        
+        
+print ('TOP 100 artists are:')
+top_artists(100)
 
