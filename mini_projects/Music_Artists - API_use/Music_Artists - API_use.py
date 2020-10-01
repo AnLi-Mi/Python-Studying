@@ -22,31 +22,31 @@ def lastfm_get(payload):
     response = requests.get(url, headers=headers, params=payload)
     return response.json()
 
-#jsonprint(lastfm_get({'method':'chart.gettopartists'}).json())
 
-def loop_through_pages(num_of_pages):
+
+def top_artists(number_of_first_top):
+    r=lastfm_get({'method':'chart.gettopartists'})
     page = 1
-    #position =1
-    last_page= num_of_pages
-    #artist_name = []
+    last_page= int(r['artists']['@attr']['total'])
+    position = 1
+    last_position = 50
+    
+    
 
     while page < last_page +1:
-        result = lastfm_get({'method':'chart.gettopartists', 'page':page})
-        #while position < 51:
-         #   artist = result.json()['artists']['artist'][position]['name']
-         #   artist_name.append(artist)
-       # 
-        jsonprint(result)
+        result = lastfm_get({'method':'chart.gettopartists', 'page':page})             
+        while position < last_position:
+            print(f"Postion {position+49*(page-1)} - {result['artists']['artist'][position]['name']}")
+           # artist_name.append(artist)
+            position+=1
+            if (position+49*(page-1))==number_of_first_top+1:
+                break 
+        if (position+49*(page-1))==number_of_first_top+1:
+                break    
+        position=1     
         page+=1
+        
+        
+print ('TOP 100 artists are:')
+top_artists(100)
 
-#print (len(artist_name))
-#print('TOP 100 artists:')
-#i=1
-#for artist in artist_name:
- #   print (f' No {i} - {artist}')
-  #  i+=1
-
-#r=lastfm_get({'method':'chart.gettopartists'})
-#jsonprint(r.json()['artists']['artist'][2]['name'])
-
-loop_through_pages(3)
