@@ -72,7 +72,7 @@ def rate_limit_calls():
     responses = []
 
     page = 1
-    total_pages = 99999 
+    total_pages = 10 
 
     while page <= total_pages:
         payload = {
@@ -82,7 +82,7 @@ def rate_limit_calls():
         }
 
         # print some output so we can see the status
-        print(f"Requesting page {page}/{total_pages}")
+        #print(f"Requesting page {page}/{total_pages}")
 
         # clear the output to make things neater
         #clear_output(wait = True)
@@ -91,7 +91,7 @@ def rate_limit_calls():
 
         # extract pagination info
         page = int(response['artists']['@attr']['page'])
-        total_pages = int(response['artists']['@attr']['totalPages'])
+        total_pages = 10
 
         # append response
         responses.append(response)
@@ -103,17 +103,20 @@ def rate_limit_calls():
         # increment the page number
         page += 1
 
-        return responses
 
+    return responses
 
+ 
 
 
 import pandas as pd
 
-reponses = rate_limit_calls()
+responses = rate_limit_calls()
 
-r0 = responses[0]
-r0_json = r0
+
+r0_json = responses[0]
+print (r0_json)
 r0_artists = r0_json['artists']['artist']
+print(r0_artists)
 r0_df = pd.DataFrame(r0_artists)
 r0_df.head()
