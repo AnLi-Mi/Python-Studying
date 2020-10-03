@@ -37,7 +37,10 @@ def lastfm_get(payload):
 
 # function dispalying given number of top artist's names 
 def top_artists(number_of_first_top):
+    
+    list_of_artists =[]
     print (f'TOP {number_of_first_top} artists are:')
+
     #calling api
     r=lastfm_get({'method':'chart.gettopartists'})
     #seting varioables for looping through result pages and arists positions to fetch name key
@@ -56,8 +59,11 @@ def top_artists(number_of_first_top):
         # looping through artists positions on the given page
         while position < last_position:
             # on each page the index of position starts from 1 so I need to amend it adding indexes from previous pages
-            print(f"Postion {position+49*(page-1)} - {result['artists']['artist'][position]['name']}")
+            print(f"Postion {position+49*(page-1)} - {result['artists']['artist'][position-1]['name']}")
+            list_of_artists.append(result['artists']['artist'][position-1]['name'])
+            #moving to the next psition
             position+=1
+            
             # stop looping through positions when we reach given number of artists
             if (position+49*(page-1))==number_of_first_top+1:
                 break 
@@ -69,6 +75,8 @@ def top_artists(number_of_first_top):
 
         if not getattr(r, 'from_cache', False):
             time.sleep(0.25)
+
+    return (list_of_artists)
         
         
 def rate_limit_calls():
@@ -136,9 +144,5 @@ def top_tags(number_of_tags, aritsts_name):
         time.sleep(0.25)
   
 
-
-top_tags(5,'Lana Del Rey')
-
-top_tags(3,'The Weekend')
-
 top_artists(1)
+
