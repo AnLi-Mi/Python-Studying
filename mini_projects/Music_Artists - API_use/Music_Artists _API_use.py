@@ -140,3 +140,5 @@ def top_tags(number_of_tags, aritsts_name):
 top_tags(5,'Lana Del Rey')
 
 top_tags(3,'The Weekend')
+
+top_artists(1)
