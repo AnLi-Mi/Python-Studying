@@ -26,7 +26,6 @@ def lastfm_get(payload):
     # adding necessary keys to the payload dictionary
     payload['api_key'] = API_KEY
     payload['format'] = 'json'
-    
 
     response = requests.get(url, headers=headers, params=payload)
     
@@ -46,7 +45,7 @@ def top_artists(number_of_first_top):
     # 'total' is a number of all pages
     last_page= int(r['artists']['@attr']['total'])
     position = 1
-    # there is 50 results per page
+    # there is 50 results per page by default
     last_position = 50
     
     
@@ -77,56 +76,62 @@ def rate_limit_calls():
     responses = []
 
     page = 1
-    total_pages = 1
+    # rundom number just to stat the loop
+    total_pages = 10 
 
     while page <= total_pages:
         payload = {
-            'method': 'chart.gettopartists',
-            'limit': 50,
+            'method': 'chart.gettopartists',            
+            'limit': 50, # as default
             'page': page
         }
 
-        # print some output so we can see the status
-        #print(f"Requesting page {page}/{total_pages}")
+        # printing some output so we can see the status
+        print(f"Requesting page {page}/{total_pages}")
 
         response = lastfm_get(payload)
 
-        # extract pagination info
-        #page = int(response['artists']['@attr']['page'])
-        #total_pages = 2
+        # extract pagination info for the status display
+        page = int(response['artists']['@attr']['page'])
+        total_pages = int(response['artists']['@attr']['total'])
 
-        # append response
+        # append response from current page
         responses.append(response)
 
-        # if it's not a cached result, sleep
+        # checking if thr result was cached if not - sleep
         if not getattr(response, 'from_cache', False):
             time.sleep(0.25)
 
-        # increment the page number
+        # moving to the next page
         page += 1
 
-
     return responses
+
 
 # function displaying top tags of given artist
 def top_tags(number_of_tags, aritsts_name):
     
     print (f'Top {number_of_tags} tags assigned to {aritsts_name} are:')
-    
+
+    #preparing empty list to fill it with tags
     top_three_tags = []
 
-    
+    #calling API with getTopTags method and given artist's name parapeter
     all_tags = lastfm_get({'method': 'artist.getTopTags','artist': aritsts_name})
 
+    #looping through all the tags form the API calling result
     i=0
     while i<number_of_tags:
+        #extracting value of each "name" key
         tag=all_tags["toptags"]["tag"][i]["name"]
+        #saving the name and the position in results
         top_three_tags.append([i+1, tag])
         i+=1
 
     for tag in top_three_tags:
         print (f'{tag[0]} - {tag[1]}')
 
+    # checking if thr result was cached if not - sleep
     if not getattr(all_tags, 'from_cache', False):
         time.sleep(0.25)
   
