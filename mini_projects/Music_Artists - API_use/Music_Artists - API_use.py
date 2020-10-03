@@ -34,6 +34,7 @@ def lastfm_get(payload):
 
 # function dispalying given number of top artist's names 
 def top_artists(number_of_first_top):
+    print (f'TOP {number_of_first_top} artists are:')
     #calling api
     r=lastfm_get({'method':'chart.gettopartists'})
     #seting varioables for looping through result pages and arists positions to fetch name key
@@ -64,34 +65,28 @@ def top_artists(number_of_first_top):
         page+=1
         
         
-print ('TOP 100 artists are:')
-top_artists(100)
-
 def rate_limit_calls():
 
     responses = []
 
     page = 1
-    total_pages = 10 
+    total_pages = 1
 
     while page <= total_pages:
         payload = {
             'method': 'chart.gettopartists',
-            'limit': 500,
+            'limit': 50,
             'page': page
         }
 
         # print some output so we can see the status
         #print(f"Requesting page {page}/{total_pages}")
 
-        # clear the output to make things neater
-        #clear_output(wait = True)
-
         response = lastfm_get(payload)
 
         # extract pagination info
-        page = int(response['artists']['@attr']['page'])
-        total_pages = 10
+        #page = int(response['artists']['@attr']['page'])
+        #total_pages = 2
 
         # append response
         responses.append(response)
@@ -106,17 +101,25 @@ def rate_limit_calls():
 
     return responses
 
- 
+# function displaying top tags of given artist
+def top_three_tags(number_of_tags, aritsts_name):
+    
+    print (f'Top {number_of_tags} tags assigned to {aritsts_name} are:')
+    
+    top_three_tags = []
+
+    
+    all_tags = lastfm_get({'method': 'artist.getTopTags','artist':{aritsts_name}})
+    i=0
+    while i<number_of_tags+1:
+        tag=all_tags["toptags"]["tag"][i]["name"]
+        top_three_tags.append([i+1, tag])
+        i+=1
+
+    for tag in top_three_tags:
+        print (f'{tag[0]} - {tag[1]}')
+
+   
 
 
-import pandas as pd
-
-responses = rate_limit_calls()
-
-
-r0_json = responses[0]
-print (r0_json)
-r0_artists = r0_json['artists']['artist']
-print(r0_artists)
-r0_df = pd.DataFrame(r0_artists)
-r0_df.head()
+top_three_tags(5,'Lana Del Rey')
