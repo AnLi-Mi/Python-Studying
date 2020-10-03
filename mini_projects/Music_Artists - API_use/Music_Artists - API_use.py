@@ -29,6 +29,10 @@ def lastfm_get(payload):
     
 
     response = requests.get(url, headers=headers, params=payload)
+    
+    if not getattr(response, 'from_cache', False):
+            time.sleep(0.25)
+            
     return response.json()
 
 
@@ -63,6 +67,9 @@ def top_artists(number_of_first_top):
                 break    
         position=1     
         page+=1
+
+        if not getattr(r, 'from_cache', False):
+            time.sleep(0.25)
         
         
 def rate_limit_calls():
@@ -102,16 +109,17 @@ def rate_limit_calls():
     return responses
 
 # function displaying top tags of given artist
-def top_three_tags(number_of_tags, aritsts_name):
+def top_tags(number_of_tags, aritsts_name):
     
     print (f'Top {number_of_tags} tags assigned to {aritsts_name} are:')
     
     top_three_tags = []
 
     
-    all_tags = lastfm_get({'method': 'artist.getTopTags','artist':{aritsts_name}})
+    all_tags = lastfm_get({'method': 'artist.getTopTags','artist': aritsts_name})
+
     i=0
-    while i<number_of_tags+1:
+    while i<number_of_tags:
         tag=all_tags["toptags"]["tag"][i]["name"]
         top_three_tags.append([i+1, tag])
         i+=1
@@ -119,7 +127,11 @@ def top_three_tags(number_of_tags, aritsts_name):
     for tag in top_three_tags:
         print (f'{tag[0]} - {tag[1]}')
 
-   
+    if not getattr(all_tags, 'from_cache', False):
+        time.sleep(0.25)
+  
 
 
-top_three_tags(5,'Lana Del Rey')
+top_tags(5,'Lana Del Rey')
+
+top_tags(3,'The Weekend')
