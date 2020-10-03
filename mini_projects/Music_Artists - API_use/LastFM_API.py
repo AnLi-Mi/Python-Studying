@@ -118,7 +118,7 @@ def rate_limit_calls():
 
 # function displaying top tags of given artist
 def top_tags(number_of_tags, aritsts_name):
-    
+
     print (f'Top {number_of_tags} tags assigned to {aritsts_name} are:')
 
     #preparing empty list to fill it with tags
@@ -142,7 +142,10 @@ def top_tags(number_of_tags, aritsts_name):
     # checking if thr result was cached if not - sleep
     if not getattr(all_tags, 'from_cache', False):
         time.sleep(0.25)
+
+    return top_three_tags
   
 
-top_artists(1)
+
+print (top_tags(10, 'Lady Gaga'))
 
