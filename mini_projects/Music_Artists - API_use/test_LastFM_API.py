@@ -27,6 +27,12 @@ class MusicAPITest(unittest.TestCase):
         result =LastFM_API.rate_limit_calls()[0]["artists"]["artist"][0]["name"]
         self.assertEqual(result, 'The Weeknd')
 
+    def test_lastfm_get(self):
+        result =LastFM_API.lastfm_get({'method':'chart.gettopartists'})["artists"]["artist"][0]["name"]
+        self.assertEqual(result, 'The Weeknd')
+
+    
+
 if __name__ == '__main__':
     unittest.main()
     
