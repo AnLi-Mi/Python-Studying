@@ -144,8 +144,18 @@ def top_tags(number_of_tags, aritsts_name):
         time.sleep(0.25)
 
     return top_three_tags
+
+# using this file as a main one to call the functions (so they don't repeat in unit tests)
+if __name__ == '__main__':
+    top_tags(0, "The Weekend")
+    rate_limit_calls()
+    top_artists()
+    lastfm_get()
+    jsonprint()
+    
+    
   
 
 
-print (top_tags(10, 'Lady Gaga'))
+
 

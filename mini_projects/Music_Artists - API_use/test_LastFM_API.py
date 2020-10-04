@@ -13,15 +13,16 @@ class MusicAPITest(unittest.TestCase):
 
     
     def test_top_artists(self):
-        result = LastFM_API.top_artists(1)[0]
-        self.assertEqual(result, 'The Weeknd' )
+        #result = 
+        self.assertEqual(LastFM_API.top_artists(1)[0], 'The Weeknd' )
 
     def test_top_tags(self):
-        result = LastFM_API.top_tags(1, 'The Weeknd')[0][1]
-        self.assertEqual(result, 'rnb' )
+        #result =
+        self.assertEqual(LastFM_API.top_tags(1, 'The Weeknd')[0][1]
+        , 'rnb' )
 
-        result = LastFM_API.top_tags(1, 'Lady Gaga')[0][1]
-        self.assertEqual(result, 'pop' )
+        #result = 
+        self.assertEqual(LastFM_API.top_tags(1, 'Lady Gaga')[0][1], 'pop' )
 
 if __name__ == '__main__':
     unittest.main()
