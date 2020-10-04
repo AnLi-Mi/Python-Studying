@@ -84,8 +84,8 @@ def rate_limit_calls():
     responses = []
 
     page = 1
-    # rundom number just to stat the loop
-    total_pages = 10 
+    # random number just to stat the loop
+    total_pages = 2
 
     while page <= total_pages:
         payload = {
@@ -95,13 +95,13 @@ def rate_limit_calls():
         }
 
         # printing some output so we can see the status
-        print(f"Requesting page {page}/{total_pages}")
+        ##print(f"Requesting page {page}/{total_pages}")
 
-        response = lastfm_get(payload)
+        response = lastfm_get(payload)     
 
         # extract pagination info for the status display
         page = int(response['artists']['@attr']['page'])
-        total_pages = int(response['artists']['@attr']['total'])
+        total_pages = 2 #2 is just for testing, usually should be -> int(response['artists']['@attr']['total'])
 
         # append response from current page
         responses.append(response)
@@ -144,8 +144,18 @@ def top_tags(number_of_tags, aritsts_name):
         time.sleep(0.25)
 
     return top_three_tags
+
+# using this file as a main one to call the functions (so they don't repeat in unit tests)
+#if __name__ == '__main__':
+ #   top_tags(0, "The Weekend")
+  #  rate_limit_calls()
+   # top_artists()
+    #lastfm_get()
+    #jsonprint()
+    
+    
   
 
 
-print (top_tags(10, 'Lady Gaga'))
+
 
