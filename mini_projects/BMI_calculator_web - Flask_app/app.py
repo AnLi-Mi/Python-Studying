@@ -20,7 +20,7 @@ def dog_api():
     url = 'https://random.dog/woof.json'
     parameters = {'format':'json'} 
     dog = requests.get(url, params=parameters)
-    return dog
+    return dog.json()['url']
 
 @app.route('/', methods=['GET', 'POST'])
 def bmi():
@@ -38,7 +38,8 @@ def bmi():
 
 @app.route('/test', methods=['GET','POST'])
 def test():
-    return render_template('dogspics.html')
+    dog_pic = dog_api()
+    return render_template('dogspics.html', dog_pic=dog_pic)
 
 
 

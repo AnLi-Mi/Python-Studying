@@ -16,7 +16,9 @@
 </div>
 
 <div>
-    <img src="https://random.dog/46121855-9975-43df-ad0f-22dac204bd0f.jpg" alt="random_dog_pic">
+{% if dog_pic %}
+    <img src={{dog_pic}} alt="random_dog_pic">
+{% endif %}
 </div>
 
 
