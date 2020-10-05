@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, json
 import requests
+from pexels_api import API
 
 
 app=Flask(__name__)
@@ -15,12 +16,22 @@ def rec(bmi):
     else:
         return "You have correct weight"
 
-def dog_api():
+def dog_api_no_key():
 
     url = 'https://random.dog/woof.json'
     parameters = {'format':'json'} 
     dog = requests.get(url, params=parameters)
     return dog.json()['url']
+
+def dog_api_key():
+    url='https://api.pexels.com/v1'
+    MY_API_KEY = '563492ad6f917000010000014a3f9bf8a7724c9daabaf113ac5bd748'
+    #headers = {'Authorization': MY_API_KEY}
+  #  parameters = {'format':'json', 'page': 1, 'per_page':10}
+    dog = API(MY_API_KEY)
+    dog.search('dog', page=1, results_per_page=1)
+    dog_photo = dog.get_entries()[0].small
+    return dog_photo
 
 @app.route('/', methods=['GET', 'POST'])
 def bmi():
@@ -38,9 +49,14 @@ def bmi():
 
 @app.route('/test', methods=['GET','POST'])
 def test():
-    dog_pic = dog_api()
+    dog_pic = dog_api_no_key()
     return render_template('dogspics.html', dog_pic=dog_pic)
 
+
+@app.route('/test2', methods = ['GET', 'POST'])
+def test2():
+    dog_pic = dog_api_key()
+    return render_template('dogspics2.html', dog_pic=dog_pic)
 
 
 
