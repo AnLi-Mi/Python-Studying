@@ -30,7 +30,7 @@ def dog_api_key():
   #  parameters = {'format':'json', 'page': 1, 'per_page':10}
     dog = API(MY_API_KEY)
     dog.search('dog', page=1, results_per_page=1)
-    dog_photo = dog.get_entries()[0].url
+    dog_photo = dog.get_entries()[0].small
     return dog_photo
 
 @app.route('/', methods=['GET', 'POST'])
