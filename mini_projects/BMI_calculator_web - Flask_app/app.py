@@ -15,7 +15,7 @@ def rec(bmi):
     else:
         return "You have correct weight"
 
-def dog_api():
+def dog_api_no_key():
 
     url = 'https://random.dog/woof.json'
     parameters = {'format':'json'} 
@@ -38,9 +38,13 @@ def bmi():
 
 @app.route('/test', methods=['GET','POST'])
 def test():
-    dog_pic = dog_api()
+    dog_pic = dog_api_no_key()
     return render_template('dogspics.html', dog_pic=dog_pic)
 
+
+@app.route('/test2', methods = ['GET', 'POST'])
+def test2():
+    return render_template('dogspics2.html')
 
 
 
