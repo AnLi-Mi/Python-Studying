@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, json
+import requests
 
 
 app=Flask(__name__)
@@ -13,6 +14,13 @@ def rec(bmi):
         return "You need to loose some weight"
     else:
         return "You have correct weight"
+
+def dog_api():
+
+    url = 'https://random.dog/woof.json'
+    parameters = {'format':'json'} 
+    dog = requests.get(url, params=parameters)
+    return dog
 
 @app.route('/', methods=['GET', 'POST'])
 def bmi():
@@ -31,6 +39,8 @@ def bmi():
 @app.route('/test', methods=['GET','POST'])
 def test():
     return render_template('dogspics.html')
+
+
 
 
 
