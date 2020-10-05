@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, json
 import requests
+from pexels_api import API
 
 
 app=Flask(__name__)
@@ -21,6 +22,17 @@ def dog_api_no_key():
     parameters = {'format':'json'} 
     dog = requests.get(url, params=parameters)
     return dog.json()['url']
+
+def dog_api_key():
+    url='https://api.pexels.com/v1'
+    MY_API_KEY = '563492ad6f917000010000014a3f9bf8a7724c9daabaf113ac5bd748'
+    #headers = {'Authorization': MY_API_KEY}
+  #  parameters = {'format':'json', 'page': 1, 'per_page':10}
+    dog = API(MY_API_KEY)
+    
+    return print(dog)
+
+dog_api_key()
 
 @app.route('/', methods=['GET', 'POST'])
 def bmi():
