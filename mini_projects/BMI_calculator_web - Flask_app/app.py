@@ -29,10 +29,9 @@ def dog_api_key():
     #headers = {'Authorization': MY_API_KEY}
   #  parameters = {'format':'json', 'page': 1, 'per_page':10}
     dog = API(MY_API_KEY)
-    
-    return print(dog)
-
-dog_api_key()
+    dog.search('dog', page=1, results_per_page=1)
+    dog_photo = dog.get_entries()[0].url
+    return dog_photo
 
 @app.route('/', methods=['GET', 'POST'])
 def bmi():
@@ -56,7 +55,8 @@ def test():
 
 @app.route('/test2', methods = ['GET', 'POST'])
 def test2():
-    return render_template('dogspics2.html')
+    dog_pic = dog_api_key()
+    return render_template('dogspics2.html', dog_pic=dog_pic)
 
 
 
