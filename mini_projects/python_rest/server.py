@@ -2,7 +2,7 @@ from flask import Flask, request
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
 from json import dumps
-#from flask.ext.jsonpify import jsonify
+from flask.ext.jsonpify import jsonify
 
 db_connect = create_engine('sqlite:///chinook.db')
 app = Flask(__name__)
@@ -22,10 +22,14 @@ def get_tracks():
     query = conn.execute("select trackid, name, composer, unitprice from tracks LIMIT 20;")
     dict_list = []
     for q in query:
+        #print (tuple((q.keys()),q)))
         pair = dict(zip(q.keys(),q))
+        #print (pair)
         dict_list.append(pair)
     result = {'data':dict_list}
-    return (result)
+    return print(jsonify(result))
+    
+    #return (result)
         
         
     #query_keys=
