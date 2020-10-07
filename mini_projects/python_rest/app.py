@@ -1,9 +1,10 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
-from json import dumps
+#from json import dumps
+import json
 #import requests
-#from flask.ext.jsonpify import jsonify
+from flask import jsonify
 
 db_connect = create_engine('sqlite:///chinook.db')
 app = Flask(__name__)
@@ -15,10 +16,11 @@ class Emp(Resource):
         query = conn.execute("select * from employees") # selecting all employees
         employees = query.cursor.fetchall() # fetching the results
         IDs = [e[0] for e in employees] #creating a list of employees' IDs
-        json_ids = {'employees' : IDs}
-        json_ids = json.dumps(json_ids, sort_keys=True, indent=4)
+        json_ids = [{'employees' : IDs}]
+         
+        #json_ids = json.dumps(json_ids, sort_keys=True, indent=4)
         
-        return json_ids
+        return jsonify(json_ids)
 
 class Track(Resource):
     def get(self):
@@ -30,8 +32,9 @@ class Track(Resource):
             pair = dict(zip(q.keys(),q))
             #print (pair)
             dict_list.append(pair)
-        result = {'data': dict_list}
-        result = json.dumps(result, sort_keys=True, indent=4)
+        result = [{'data': dict_list}]
+        result = jsonify(result)
+        #result = json.dumps(result, sort_keys=True, indent=4)
         return result
     
 
