@@ -23,19 +23,23 @@ class Track(Resource):
     def get(self):
         conn = db_connect.connect()
         query = conn.execute("select trackid, name, composer, unitprice from tracks LIMIT 20;")
-        dict_list = []
+        track_data = []
         for q in query:          
             pair = dict(zip(tuple (q.keys()) ,q))            
-            dict_list.append(pair)
-        result = [{'data': dict_list}]
+            track_data.append(pair)
+        result = [{'data': track_data}]
         result = jsonify(result)
         return result
 
 class Emp_Name(Resource):
     def get(self, emp_id):
         conn = db_connect.connect()
-        query = conn.execute("select * from employees where EmployeeId =%d "  %int(emp_id))
-        result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
+        query = conn.execute(f"select * from employees where EmployeeId ={emp_id}")
+        employee_data = []    
+        for q in query:
+            pair = dict(zip(q.keys(),q))
+            employee_data.append(pair)
+        result = {'data': employee_data}
         return result
     
 
