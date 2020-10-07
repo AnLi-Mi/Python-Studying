@@ -3,7 +3,7 @@ import requests
 from pexels_api import API
 
 
-app=Flask(__name__)
+app_use=Flask(__name__)
 
 def calc_bmi(w,h):
     return round(w/(h**2),2)
