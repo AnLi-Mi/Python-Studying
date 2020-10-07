@@ -37,7 +37,7 @@ class Emp_Name(Resource):
         query = conn.execute(f"select * from employees where EmployeeId ={emp_id}")
         employee_data = []    
         for q in query:
-            pair = dict(zip(q.keys(),q))
+            pair = dict(zip(tuple(q.keys()),q))
             employee_data.append(pair)
         result = {'data': employee_data}
         return result

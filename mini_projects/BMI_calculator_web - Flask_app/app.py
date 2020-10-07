@@ -33,6 +33,13 @@ def dog_api_key():
     dog_photo = dog.get_entries()[0].small
     return dog_photo
 
+def my_api_no_key():
+
+    url = 'http://127.0.0.1:5000/employees/2'
+    parameters = {'format':'json'} 
+    my_api = requests.get(url, params=parameters)
+    return my_api
+
 @app.route('/', methods=['GET', 'POST'])
 def bmi():
     name = ''
@@ -57,6 +64,11 @@ def test():
 def test2():
     dog_pic = dog_api_key()
     return render_template('dogspics2.html', dog_pic=dog_pic)
+
+@app.route('/my_api', methods=['GET','POST'])
+def my_api():
+    my_api = my_api_no_key()
+    return render_template('my_api.html', my_api=my_api)
 
 
 
