@@ -38,7 +38,7 @@ def my_api_no_key():
     url = 'http://127.0.0.1:5000/employees/2'
     parameters = {'format':'json'} 
     my_api = requests.get(url, params=parameters)
-    return my_api
+    return my_api.status_code
 
 @app.route('/', methods=['GET', 'POST'])
 def bmi():
