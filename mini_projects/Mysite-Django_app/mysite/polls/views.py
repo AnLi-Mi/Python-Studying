@@ -12,8 +12,10 @@ def index(request):
 
 
 def detail(request, question_id):
-    question = Question.objects.get(pk=question_id)
-    
+    try:
+        question = Question.objects.get(pk=question_id)
+    except Question.DoesNotExist:
+        raise Http404("No question with such ID")    
     return render(request, 'polls/details.html', {'question':question})
 
 
