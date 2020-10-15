@@ -1,12 +1,18 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" type = 'text.css' href="{% static 'polls/style.css'%}">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+</head>
+
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
+<form class="pure-form" action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label>{{ choice.choice_text }}</label><br><br>
 {% endfor %}
-<input type="submit" value="Vote">
+<button type="submit" value="Vote" class="button-warning">Vote</button>
 </form>
