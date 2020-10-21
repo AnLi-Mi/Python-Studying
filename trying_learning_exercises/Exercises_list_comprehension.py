@@ -40,3 +40,10 @@ name_s = [friend for friend in my_friends if friend.startswith('S')]
 print (name_s)
 
 
+
+# Exercise 3 - list all palidromes lower than 200
+
+palindrome = [x for x in range(10, 200) if str(x)==str(x)[::-1]]
+print (palindrome)
+
+
