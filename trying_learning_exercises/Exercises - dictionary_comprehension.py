@@ -23,3 +23,14 @@ users_dictionary2 = {user[1]:user for user in users}
 
 
 print(users_dictionary2)
+
+
+# adding the user from the input
+
+user_name = input('Enter your name: ')
+user_password = input('Chooser your name: ')
+
+users_dictionary2[user_name] = len(users_dictionary2), user_name, user_password
+
+print(users_dictionary2)
+
