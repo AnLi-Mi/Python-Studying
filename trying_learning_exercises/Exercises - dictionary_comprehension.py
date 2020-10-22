@@ -10,8 +10,16 @@ users_dictionary = {}
 i=1
 while i<=len(users):
     for user in users:
-        users_dictionary[f"user{i}"] = user
+        users_dictionary[user[1]] = user
         i+=1
 
 
 print(users_dictionary)
+
+
+# creating the dictionary option2
+
+users_dictionary2 = {user[1]:user for user in users}
+
+
+print(users_dictionary2)
