@@ -44,5 +44,17 @@ months = {"a":31,"b":"28/29","c":31, "d":30, "e":31, "f":30, "g":31, "h":31, "i"
 
 calendar2(*months)
 calendar2(**months)
+calendar2(1,2,3,4,5,6,7,7,89,4,2,6)
+calendar2(a=1,b=2,c=3, d=4,e=5,f=6,g=7,h=7,i=89,j=4,k=2,l=6)
+
+# keyoword arguments
+
+def testingfunc(**kwarg):
+    print(kwarg)
+
+
+testingfunc(a=1,b=2,c=3, d=4,e=5,f=6,g=7,h=7,i=89,j=4,k=2,l=6)
+
+    
 
 
