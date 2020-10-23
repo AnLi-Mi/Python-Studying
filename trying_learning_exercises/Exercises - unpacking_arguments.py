@@ -1,3 +1,6 @@
+# This file is dedicated to exercise, learn, disaable packages, modules and functions dedicated
+# to args and kwardg
+
 # positional arguments
 
 # Ex 1
