@@ -57,10 +57,14 @@ class Books:
         return f"<Book {self.title}, {self.cover_type}, {self.weight}g>"
 
     @classmethod
-    def hard_cover_book (cls, title, weight):
-        print (f'{title} in {Books.TYPE[0]} weights {weight}g')
+    def hardcover_book (cls, title, page_weight):
+        return Books(title, Books.TYPE[0], page_weight +200) #I can use cls insted of class name
 
+    @classmethod
+    def softcover_book (cls, title, page_weight):
+        return cls(title, cls.TYPE[1], page_weight + 100) # I can use class name insted od cls
 
+ 
 
 book1=Books("Harry Potter", "softcover", 1500)
 print (book1)
@@ -68,8 +72,8 @@ print (book1.title)
 print (book1.cover_type)
 print (book1.weight)
 
-Books.hard_cover_book("Little Prince", 800)
-
+print(Books.hardcover_book("Little Prince", 800))
+print(Books.softcover_book("Little Prince", 800))
 
         
 
