@@ -43,6 +43,30 @@ ClassTest.class_method() # calling the class method - only option
 
 ClassTest.static_method() # calling the static method - only option
 
+#----------------------------------------------------------------------
+
+class Books:
+    TYPE = ("hardcover", "softcover")
+
+    def __init__(self, title, cover_type, weight):
+        self.title = title
+        self.cover_type = cover_type
+        self.weight = weight
+
+    @classmethod
+    def hard_cover_book (cls, title, weight):
+        print (f'{title} in {Books.TYPE[0]} weights {weight}g')
+
+
+
+book1=Books("Harry Potter", "softcover", 1500)
+print (book1)
+print (book1.title)
+print (book1.cover_type)
+print (book1.weight)
+
+Books.hard_cover_book("Little Prince", 800)
+
 
         
 
