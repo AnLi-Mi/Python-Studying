@@ -43,6 +43,37 @@ ClassTest.class_method() # calling the class method - only option
 
 ClassTest.static_method() # calling the static method - only option
 
+#----------------------------------------------------------------------
+
+class Books:
+    TYPE = ("hardcover", "softcover") # class properties
+
+    def __init__(self, title, cover_type, weight):
+        self.title = title
+        self.cover_type = cover_type
+        self.weight = weight
+
+    def __repr__(self):
+        return f"<Book {self.title}, {self.cover_type}, {self.weight}g>"
+
+    @classmethod
+    def hardcover_book (cls, title, page_weight):
+        return Books(title, Books.TYPE[0], page_weight +200) #I can use cls insted of class name
+
+    @classmethod
+    def softcover_book (cls, title, page_weight):
+        return cls(title, cls.TYPE[1], page_weight + 100) # I can use class name insted od cls
+
+ 
+
+book1=Books("Harry Potter", "softcover", 1500)
+print (book1)
+print (book1.title)
+print (book1.cover_type)
+print (book1.weight)
+
+print(Books.hardcover_book("Little Prince", 800))
+print(Books.softcover_book("Little Prince", 800))
 
         
 
