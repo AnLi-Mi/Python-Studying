@@ -26,11 +26,17 @@ class ClassTest:
     def instance_method(self): #it has self as a first parameter so it's na 'instance method'  
         print (f'This in an instance method of {self}')
 
+    @classmethod
+    def class_method(cls): #it has cls as a first parameter so it's a 'class' method
+        print (f'This in an class method of {cls}')
+
 
 test1 = ClassTest() #the object is created even without __init__ method
 
-ClassTest.instance_method(test1)
-test1.instance_method()
+ClassTest.instance_method(test1) #calling the instance method option1
+test1.instance_method() #calling the instance method option2
+
+ClassTest.class_method() # calling the class method - only option
 
 
         
