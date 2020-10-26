@@ -28,8 +28,11 @@ class ClassTest:
 
     @classmethod
     def class_method(cls): #it has cls as a first parameter so it's a 'class' method
-        print (f'This in an class method of {cls}')
+        print (f'This in a class method of {cls}')
 
+    @staticmethod
+    def static_method(): #it isn't really a mothod, it's a function inside a class
+        print ('This is a static method')
 
 test1 = ClassTest() #the object is created even without __init__ method
 
@@ -37,6 +40,8 @@ ClassTest.instance_method(test1) #calling the instance method option1
 test1.instance_method() #calling the instance method option2
 
 ClassTest.class_method() # calling the class method - only option
+
+ClassTest.static_method() # calling the static method - only option
 
 
         
