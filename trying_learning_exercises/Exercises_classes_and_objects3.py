@@ -46,12 +46,15 @@ ClassTest.static_method() # calling the static method - only option
 #----------------------------------------------------------------------
 
 class Books:
-    TYPE = ("hardcover", "softcover")
+    TYPE = ("hardcover", "softcover") # class properties
 
     def __init__(self, title, cover_type, weight):
         self.title = title
         self.cover_type = cover_type
         self.weight = weight
+
+    def __repr__(self):
+        return f"<Book {self.title}, {self.cover_type}, {self.weight}g>"
 
     @classmethod
     def hard_cover_book (cls, title, weight):
