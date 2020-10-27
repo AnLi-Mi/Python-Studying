@@ -1,10 +1,10 @@
 class JobSite:
-    def __init__(self, name, url, *jobs):
+    def __init__(self, name, url, *jobs) -> "JobSite":
         self.name = name
         self.url = url
         self.jobs = jobs
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'On {self.name} site are at the moment {len(self.jobs)} suitable job offers'
 
     def harvest_job_elements(self):
@@ -16,7 +16,7 @@ class Job:
     def __init__(self):
         pass
 
-    def add_details(self, title, company, salary, technology, location):
+    def add_details(self, title: str, company: str, salary: float, technology: str, location: str):
         self.title = title
         self.company = company
         self. salary = salary
