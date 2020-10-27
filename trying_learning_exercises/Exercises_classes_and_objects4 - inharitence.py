@@ -12,6 +12,11 @@ class Device:
         self.connected = False
         return f"{self.name} is disconnected."
 
+    def connect(self):
+        self.connected = True
+        return f"{self.name} is connected."
+        
+
 
 printer = Device("Printer", "USB")
 print(printer)
@@ -36,3 +41,10 @@ class Printer(Device): #creating a child class Printer from parent class Device
 printer1 = Printer("Xerox", "USB", 1000)
 print (printer1)
 print (printer1.printing(200))
+print (printer1.disconnect())
+print (printer1.printing(100))
+print (printer1.connect())
+print (printer1.printing(100))
+
+printer1.print()
+
