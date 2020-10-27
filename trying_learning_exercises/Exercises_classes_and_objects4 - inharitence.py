@@ -27,5 +27,12 @@ class Printer(Device): #creating a child class Printer from parent class Device
     def __str__(self):
         return f'{super().__str__()}, {self.remaning_pages} reminig pages'
 
+    def printing(self, pages):
+        if not self.connected:
+            return f'{self.name} is not connected'
+        else:
+            return f'Printing {pages} pages. Remining pages : {self.remaning_pages - pages}.'
+
 printer1 = Printer("Xerox", "USB", 1000)
 print (printer1)
+print (printer1.printing(200))
