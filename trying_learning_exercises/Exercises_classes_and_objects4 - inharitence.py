@@ -23,4 +23,9 @@ class Printer(Device): #creating a child class Printer from parent class Device
         super().__init__(name, connected_by)#we are calling a method from the parent class, no self!
         self.capacity = capacity
         self.remaning_pages = capacity # we will be modifying this paramater later
-        
+
+    def __str__(self):
+        return f'{super().__str__()}, {self.remaning_pages} reminig pages'
+
+printer1 = Printer("Xerox", "USB", 1000)
+print (printer1)
