@@ -23,3 +23,12 @@ try:
 except RuntimeError:
     print ('element not found')
 
+# ----------using lambda as the function argument -----
+
+try:
+    search_element(expected_element = "Steven",
+                   sequence = friends,
+                   function = lambda friend: friend["name"])
+except RuntimeError:
+    print ('element not found')
+
