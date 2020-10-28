@@ -7,13 +7,17 @@ def search_element(sequence, expected_element):
 
 friends = [{"name":"Bob", "age":34}, {"name":"Martha", "age":34}, {"name":"Alice", "age":29}, {"name":"Steven", "age":33}, {"name":"Julia", "age":30}, {"name":"Martin", "age":24}]
 
-friends_names = []
+def friend_name(friend):
+    return print(friend["name"])
+
+
 for friend in friends:
-    friends_names.append(friend["name"])
+    friend_name(friend)
+
     
 
 try:
-    search_element(expected_element = "Julia", sequence = friends_names)
+    search_element(expected_element = "Julia", sequence = friends)
 except RuntimeError:
     print ('element not found')
 
