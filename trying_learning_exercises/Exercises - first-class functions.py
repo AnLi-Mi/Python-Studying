@@ -32,3 +32,16 @@ try:
 except RuntimeError:
     print ('element not found')
 
+# ----------using a built-in function -----------
+
+from operator import itemgetter
+
+try:
+    search_element(expected_element = "Bob",
+                   sequence = friends,
+                   function = itemgetter("name"))
+except RuntimeError:
+    print ('element not found')
+
+
+
