@@ -3,9 +3,9 @@ def friend_name(friend: dir):
     return (friend["name"])
 
 
-def search_element(sequence, expected_element):
+def search_element(sequence, expected_element, function):
     for element in sequence:
-        name = friend_name(element)
+        name = function(element)
         if name == expected_element:
             return print(name)
     raise RuntimeError('element not found')
@@ -18,7 +18,9 @@ friends = [{"name":"Bob", "age":34}, {"name":"Martha", "age":34}, {"name":"Alice
 
 
 try:
-    search_element(expected_element = "Julia", sequence = friends)
+    search_element(expected_element = "Anna",
+                   sequence = friends,
+                   function=friend_name)
 except RuntimeError:
     print ('element not found')
 
