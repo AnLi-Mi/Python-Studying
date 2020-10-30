@@ -16,7 +16,7 @@ stores = [
 @app.route('/')
 def home():
     return render_template('index.html')
-    
+
 @app.route('/stores')
 def get_stores():
     return jsonify({"stores": stores}) #turned into the dictionary so json can read it
@@ -38,10 +38,10 @@ def get_store(name):
 @app.route('/stores/<string:name>/items', methods = ['POST'])
 def create_item_in_store(name):
     request_data = request.get_json()
-    new_item = {"name": request_data["name"], "price":request_data["price"]}
     for store in stores:
+        new_item = {"name": request_data["name"], "price":request_data["price"]}
         if store["name"]==name:
-            store["items"].append(new_item)
+            store['items'].append(new_item)
             return jsonify(new_item)
     return jsonify({"message":"Store not found"})
 
