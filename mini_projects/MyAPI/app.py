@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
  # capital letters- classes, lower letter - methods and packages
  # jsonify turns python dictionary element into a string of text
 
@@ -13,7 +13,10 @@ stores = [
      ]
     }
 ]
-
+@app.route('/')
+def home():
+    return render_template('index.html')
+    
 @app.route('/stores')
 def get_stores():
     return jsonify({"stores": stores}) #turned into the dictionary so json can read it
