@@ -41,7 +41,7 @@ def create_item_in_store(name):
     for store in stores:
         new_item = {"name": request_data["name"], "price":request_data["price"]}
         if store["name"]==name:
-            store["items"].append(new_item)
+            store['items'].append(new_item)
             return jsonify(new_item)
     return jsonify({"message":"Store not found"})
 
