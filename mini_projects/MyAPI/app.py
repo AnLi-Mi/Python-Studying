@@ -5,14 +5,18 @@ from flask import Flask, jsonify, request, render_template
 app = Flask(__name__)
 
 stores = [
-    {"name": "My great store",
+    {"name": "My Perfect store",
      "items": [
          {"name": "My first Item",
-          "price": 15.00
+          "price": 15.99
+          },
+         {"name": "My second Item",
+          "price": 8.99
           }
      ]
     }
 ]
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -24,9 +28,9 @@ def get_stores():
 @app.route('/stores', methods = ['POST'])
 def create_store():
     request_data = request.get_json()
-    new_shop = {"name": request_data["name"], "itmes":[]}
-    stores.append(new_shop)
-    return jsonify(new_shop)
+    new_store = {"name": request_data["name"], "itmes":[]}
+    stores.append(new_store)
+    return jsonify(new_store)
 
 @app.route('/stores/<string:name>')
 def get_store(name):
@@ -35,7 +39,7 @@ def get_store(name):
             return jsonify(store)
     return jsonify({"message":"Store not found"})
 
-@app.route('/stores/<string:name>/items', methods = ['POST'])
+@app.route('/stores/<string:name>/item', methods = ['POST'])
 def create_item_in_store(name):
     request_data = request.get_json()
     for store in stores:
@@ -45,7 +49,7 @@ def create_item_in_store(name):
             return jsonify(new_item)
     return jsonify({"message":"Store not found"})
 
-@app.route('/stores/<string:name>/items')
+@app.route('/stores/<string:name>/item')
 def get_items_in_store(name):
     for store in stores:
         if store["name"]==name:
