@@ -11,6 +11,7 @@ class Item(Resource):
         for item in items:
             if item["name"]==name:
                 return item
+        return {"item": None}, 404
 
     def post(self, name):
         #new_item = get
