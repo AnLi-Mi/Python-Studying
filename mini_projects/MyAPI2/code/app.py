@@ -8,6 +8,6 @@ class Student(Resource):
     def get(self, name):
         return {'student': name}
 
-api.add_resource(Student, '/students/<string:name>')
+api.add_resource(Student, '/student/<string:name>')
 
-app.run(port=5000)
+app.run()
