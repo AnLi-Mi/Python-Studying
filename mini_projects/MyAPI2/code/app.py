@@ -17,7 +17,7 @@ class Item(Resource):
         #new_item = get
         item = {"name": name, "price": 12.00}
         items.append(item)
-        return item
+        return item, 201
 
     def put(self, name):
         pass
@@ -25,8 +25,13 @@ class Item(Resource):
     def delete(self, name):
         pass
 
+class ItemsList(Resource):
+    def get(self):
+        return {"items": items}, 200
+
 
 api.add_resource(Item, '/item/<string:name>')
+api.add_resource(ItemsList, '/items')
 
 
-app.run()
+app.run(port=5000, debug=True)
