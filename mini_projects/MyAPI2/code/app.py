@@ -13,10 +13,7 @@ items = []
 
 class Item(Resource):
     parser=reqparse.RequestParser() # parser to polsku to analiza skladniowa, no self so it refers to all class
-    parser.add_argument('price',
-            type = float,
-            required = True,
-            help = 'any massage, here - this field cannot be blank')
+    parser.add_argument('price', type = float, required = True, help = 'any massage, here - this field cannot be blank')
 
     @jwt_required()
     def get(self, name):
@@ -27,9 +24,10 @@ class Item(Resource):
 
     def post(self, name):
         if next(filter(lambda x: x["name"]==name, items), None) is not None: #if filtered item is not none = already exists
-            return {"message" : f"the item with name {name!r} already exists"}, 400 # the code is ok, the user typed in the bad request
+            return {"message": f"the item with name {name!r} already exists"}, 400 # the code is ok, the user typed in the bad request
 
         new_item = Item.parser.parse_args()
+
         item = {"name": name, "price": new_item["price"]}
         items.append(item)
         return item, 201
