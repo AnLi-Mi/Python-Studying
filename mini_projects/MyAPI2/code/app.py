@@ -32,7 +32,12 @@ class Item(Resource):
         pass
 
     def delete(self, name):
-        pass
+        if next(filter(lambda x: x["name"]==name, items), None) is None:
+            return {"message" : f"item of name {name!r} does not exist"}, 400
+
+        delete_item = request.get_json()
+        items.remove(delete_item)
+        return {"message" : f"item {delete_item} deleted"}, 201
 
 api.add_resource(Item, '/item/<string:name>')
 
