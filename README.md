@@ -1,4 +1,4 @@
-# <h1> Python-Studying </h1>
+# <h1> Python Studying Projects </h1>
 
 This repository consists of a selection of code snippets and mini-projects I've created while learning programming in Python, associated technologies and good practices. 
  
