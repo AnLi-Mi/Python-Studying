@@ -1,5 +1,5 @@
 from flask import Flask, request
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, reqparse
 from flask_jwt import JWT, jwt_required
 from security import authenticate, identity
 
@@ -29,13 +29,15 @@ class Item(Resource):
         return item, 201
 
     def put(self, name):
-        data = request.get_json()
-        item = next(filter(lambda x: x["name"]==name, items), None)
+        parser=reqparse.RequestParser() # parser to polsku to analiza skladniowa
+        parser.add_argument('price', type = float, required = True, help = 'any massage, here - this field cannot be blank')
+        data = parser.parse_args() # without paresr it would be request.get_json(), it goes through the arguments and choose the valid ones
 
+        item = next(filter(lambda x: x["name"]==name, items), None)
         if item is None:
             item = {"name": name, "price": data["price"]}
             items.append(item)
-        else:           
+        else:
             item.update(data) #function for dictionaries insted doing in example item["price"] = data["price"] for each pair
 
         return item , 201
