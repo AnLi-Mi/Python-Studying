@@ -29,16 +29,16 @@ class Item(Resource):
         return item, 201
 
     def put(self, name):
-        new_item = request.get_json()
+        data = request.get_json()
         item = next(filter(lambda x: x["name"]==name, items), None)
 
         if item is None:
-            item = {"name": name, "price": new_item["price"]}
+            item = {"name": name, "price": data["price"]}
             items.append(item)
-            return {item}, 201
+        else:           
+            item.update(data) #function for dictionaries insted doing in example item["price"] = data["price"] for each pair
 
-        item["price"] = new_item["price"]
-        return {item}, 201
+        return item , 201
 
     def delete(self, name):
         #if next(filter(lambda x: x["name"]==name, items), None) is None:
