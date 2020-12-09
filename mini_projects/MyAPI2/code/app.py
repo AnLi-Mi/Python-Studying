@@ -29,10 +29,24 @@ class Item(Resource):
         return item, 201
 
     def put(self, name):
-        pass
+        new_item = request.get_json()
+        item = next(filter(lambda x: x["name"]==name, items), None)
+
+        if item is None:
+            item = {"name": name, "price": new_item["price"]}
+            items.append(item)
+            return {item}, 201
+
+        item["price"] = new_item["price"]
+        return {item}, 201
 
     def delete(self, name):
-        pass
+        #if next(filter(lambda x: x["name"]==name, items), None) is None:
+        #    return {"message" : f"item of name {name!r} does not exist"}, 400
+
+        global items
+        items = list(filter(lambda x: x["name"] != name, items))
+        return {"message": f"item {name} deleted"}, 201
 
 api.add_resource(Item, '/item/<string:name>')
 
